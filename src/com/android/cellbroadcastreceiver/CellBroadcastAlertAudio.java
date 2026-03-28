@@ -393,7 +393,8 @@ public class CellBroadcastAlertAudio extends Service implements TextToSpeech.OnI
 
         Resources res = CellBroadcastSettings.getResourcesByOperator(getApplicationContext(),
                 mSubId, CellBroadcastReceiver.getRoamingOperatorSupported(getApplicationContext()));
-        mEnableLedFlash = res.getBoolean(R.bool.enable_led_flash);
+        boolean ledFlashDefault = res.getBoolean(R.bool.enable_led_flash);
+        mEnableLedFlash = prefs.getBoolean(CellBroadcastSettings.KEY_ENABLE_LED_FLASH, ledFlashDefault);
 
         // retrieve the customized alert duration. -1 means play the alert with the tone's duration.
         mAlertDuration = intent.getIntExtra(ALERT_AUDIO_DURATION, -1);

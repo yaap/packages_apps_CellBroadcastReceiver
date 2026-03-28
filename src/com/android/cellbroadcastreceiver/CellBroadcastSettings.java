@@ -167,6 +167,10 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
     public static final String KEY_RECEIVE_CMAS_IN_SECOND_LANGUAGE =
             "receive_cmas_in_second_language";
 
+    /* YAAP added keys */
+
+    public static final String KEY_ENABLE_LED_FLASH = "enable_led_flash";
+
     /* End of user preferences keys section. */
 
     // Key for shared preference which represents whether user has changed any preference
@@ -293,7 +297,8 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
                 .remove(KEY_ENABLE_CMAS_PRESIDENTIAL_ALERTS)
                 .remove(KEY_RECEIVE_CMAS_IN_SECOND_LANGUAGE)
                 .remove(KEY_ENABLE_EXERCISE_ALERTS)
-                .remove(KEY_OPERATOR_DEFINED_ALERTS);
+                .remove(KEY_OPERATOR_DEFINED_ALERTS)
+                .remove(KEY_ENABLE_LED_FLASH);
         // If the device is in test harness mode, reset main toggle should only happen on the
         // first boot.
         if (!ActivityManager.isRunningInUserTestHarness()) {
@@ -362,6 +367,9 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
         // Show the top introduction
         private Preference mTopIntroPreference;
 
+        /* YAAP added prefs */
+        private TwoStatePreference mEnableLedCheckBox;
+
         private final BroadcastReceiver mTestingModeChangedReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -412,6 +420,9 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
             // Show checkbox for Presidential alerts in settings
             mPresidentialCheckBox = (TwoStatePreference)
                     findPreference(KEY_ENABLE_CMAS_PRESIDENTIAL_ALERTS);
+
+            /* YAAP added prefs */
+            mEnableLedCheckBox = (TwoStatePreference) findPreference(KEY_ENABLE_LED_FLASH);
 
             PackageManager pm = getActivity().getPackageManager();
             if (!pm.hasSystemFeature(PackageManager.FEATURE_WATCH)) {
@@ -580,6 +591,11 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
             if (mStateLocalTestCheckBox != null) {
                 mStateLocalTestCheckBox.setOnPreferenceChangeListener(
                         startConfigServiceListener);
+            }
+
+            /* YAAP added prefs */
+            if (mEnableLedCheckBox != null) {
+                mEnableLedCheckBox.setOnPreferenceChangeListener(startConfigServiceListener);
             }
 
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -1419,6 +1435,7 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
             if (mTopIntroPreference != null) {
                 mTopIntroPreference.setTitle(getTopIntroduction());
             }
+
         }
 
         private int getTopIntroduction() {
@@ -1792,6 +1809,9 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
                 return R.bool.state_local_test_alerts_enabled_default;
             case KEY_ENABLE_AREA_UPDATE_INFO_ALERTS:
                 return R.bool.area_update_info_alerts_enabled_default;
+            /* YAAP added prefs */
+            case KEY_ENABLE_LED_FLASH:
+                return R.bool.enable_led_flash;
             default:
                 return 0;
         }

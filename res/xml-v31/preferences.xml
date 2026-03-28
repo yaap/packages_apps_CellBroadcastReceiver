@@ -148,6 +148,17 @@
                           android:key="enable_alert_speech"
                           android:summary="@string/enable_alert_speech_summary"
                           android:title="@string/enable_alert_speech_title" />
+
+        <SwitchPreferenceCompat android:defaultValue="@bool/enable_led_flash"
+                          android:key="enable_led_flash"
+                          android:summary="@string/enable_led_flash_summary"
+                          android:title="@string/enable_led_flash_title" />
+
+        <SwitchPreferenceCompat android:defaultValue="@bool/enable_alert_handling_during_call"
+                          android:key="handle_in_call"
+                          android:summary="@string/handle_in_call_summary"
+                          android:title="@string/handle_in_call_title" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
