@@ -44,27 +44,27 @@
     <!-- Whether to display public safety alert settings, some countries/carriers want to enable it by default and not allow users to disable -->
     <bool name="show_public_safety_settings">true</bool>
     <!-- Whether to show settings that allows user to turn off full-screen public safety messages -->
-    <bool name="show_public_safety_full_screen_settings">false</bool>
+    <bool name="show_public_safety_full_screen_settings">true</bool>
     <!-- Whether to display state/local test settings, some countries/carriers want to enable it by default and not allow users to disable -->
     <bool name="show_state_local_test_settings">true</bool>
     <!-- Whether to display exercise test settings when testing mode is off. -->
-    <bool name="show_exercise_settings">false</bool>
+    <bool name="show_exercise_settings">true</bool>
     <!-- whether to display a separate exercise test settings. today, most of time, exercise channels was controlled by the main test toggle. -->
     <bool name="show_separate_exercise_settings">false</bool>
     <!-- Whether to display operator defined test settings when testing mode is off. -->
     <!-- This is read only when show_separate_exercise_settings is on -->
-    <bool name="show_operator_defined_settings">false</bool>
+    <bool name="show_operator_defined_settings">true</bool>
     <!-- whether to display a separate operator defined test settings. today, most of time, operator defined channels was controlled by the main test toggle. -->
     <bool name="show_separate_operator_defined_settings">false</bool>
 
     <!-- Whether to disable cell broadcast severe alert when extreme alert is disabled -->
-    <bool name="disable_severe_when_extreme_disabled">true</bool>
+    <bool name="disable_severe_when_extreme_disabled">false</bool>
     <!-- Whether to enable alert handling during active voice call. -->
-    <bool name="enable_alert_handling_during_call">false</bool>
+    <bool name="enable_alert_handling_during_call">true</bool>
     <!-- Whether the user can mute the alert by physical button -->
     <bool name="mute_by_physical_button">true</bool>
     <!-- Whether enable LED flash when playing alert tones -->
-    <bool name="enable_led_flash">false</bool>
+    <bool name="enable_led_flash">true</bool>
     <!-- Whether allowing testing mode on user build or not -->
     <bool name="allow_testing_mode_on_user_build">true</bool>
     <!-- Whether to save alerts to sms inbox database -->
@@ -109,7 +109,7 @@
     <!-- Show cellbroadcast message history entry point in the application launcher.-->
     <bool name="show_message_history_in_launcher">false</bool>
     <!-- Allow user to enable/disable audio speech alert (text-to-speech for received messages)-->
-    <bool name="show_alert_speech_setting">false</bool>
+    <bool name="show_alert_speech_setting">true</bool>
     <!-- always overriding dnd settings: Play alert sound in full volume regardless DND is on. Applied to all channels -->
     <bool name="override_dnd">false</bool>
     <!-- Default value which determines whether spoken alerts enabled -->
