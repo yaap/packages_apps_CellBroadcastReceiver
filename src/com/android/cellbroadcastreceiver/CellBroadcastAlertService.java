@@ -504,10 +504,13 @@ public class CellBroadcastAlertService extends Service {
             return;
         }
 
-        if (mTelephonyManager.getCallState() != TelephonyManager.CALL_STATE_IDLE
-                && CellBroadcastSettings.getResourcesByOperator(mContext, cbm.getSubscriptionId(),
-                        CellBroadcastReceiver.getRoamingOperatorSupported(mContext))
-                .getBoolean(R.bool.enable_alert_handling_during_call)) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        Resources res = CellBroadcastSettings.getResourcesByOperator(mContext, cbm.getSubscriptionId(),
+                    CellBroadcastReceiver.getRoamingOperatorSupported(mContext));
+        boolean handleInCallDefault = res.getBoolean(R.bool.enable_alert_handling_during_call);
+        boolean handleInCall = prefs.getBoolean(
+                CellBroadcastSettings.KEY_HANDLE_IN_CALL, handleInCallDefault);
+        if (mTelephonyManager.getCallState() != TelephonyManager.CALL_STATE_IDLE && handleInCall) {
             Log.d(TAG, "CMAS received in dialing/during voicecall.");
             sRemindAfterCallFinish = true;
         }
