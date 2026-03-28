@@ -126,6 +126,10 @@
                           android:summary="@string/enable_alert_vibrate_summary"
                           android:title="@string/enable_alert_vibrate_title" />
 
+        <SwitchPreferenceCompat android:defaultValue="true"
+                          android:key="enable_alert_tone"
+                          android:title="@string/enable_alert_tone_title" />
+
         <ListPreference android:key="alert_reminder_interval"
                         android:title="@string/alert_reminder_interval_title"
                         android:entries="@array/alert_reminder_interval_entries"

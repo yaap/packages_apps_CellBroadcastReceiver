@@ -169,6 +169,7 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
 
     /* YAAP added keys */
 
+    public static final String KEY_ENABLE_ALERT_TONE = "enable_alert_tone";
     public static final String KEY_ENABLE_LED_FLASH = "enable_led_flash";
     public static final String KEY_HANDLE_IN_CALL = "handle_in_call";
 
@@ -299,6 +300,7 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
                 .remove(KEY_RECEIVE_CMAS_IN_SECOND_LANGUAGE)
                 .remove(KEY_ENABLE_EXERCISE_ALERTS)
                 .remove(KEY_OPERATOR_DEFINED_ALERTS)
+                .remove(KEY_ENABLE_ALERT_TONE)
                 .remove(KEY_ENABLE_LED_FLASH)
                 .remove(KEY_HANDLE_IN_CALL);
         // If the device is in test harness mode, reset main toggle should only happen on the
@@ -370,6 +372,7 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
         private Preference mTopIntroPreference;
 
         /* YAAP added prefs */
+        private TwoStatePreference mAlertToneCheckBox;
         private TwoStatePreference mEnableLedCheckBox;
         private TwoStatePreference mInCallCheckBox;
 
@@ -425,6 +428,7 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
                     findPreference(KEY_ENABLE_CMAS_PRESIDENTIAL_ALERTS);
 
             /* YAAP added prefs */
+            mAlertToneCheckBox = (TwoStatePreference) findPreference(KEY_ENABLE_ALERT_TONE);
             mEnableLedCheckBox = (TwoStatePreference) findPreference(KEY_ENABLE_LED_FLASH);
             mInCallCheckBox = (TwoStatePreference) findPreference(KEY_HANDLE_IN_CALL);
 
@@ -598,6 +602,9 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
             }
 
             /* YAAP added prefs */
+            if (mAlertToneCheckBox != null) {
+                mAlertToneCheckBox.setOnPreferenceChangeListener(startConfigServiceListener);
+            }
             if (mEnableLedCheckBox != null) {
                 mEnableLedCheckBox.setOnPreferenceChangeListener(startConfigServiceListener);
             }
@@ -642,20 +649,33 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
         }
 
         /**
-         * Update the vibration preference based on override DND. If DND is overridden, then do
-         * not allow users to turn off vibration.
+         * Update the vibration and tone preferences based on override DND. If DND is overridden, then do
+         * not allow users to turn off vibration or tone.
          *
          * @param overrideDnd {@code true} if the alert will be played at full volume, regardless
          * DND settings.
          */
         private void updateVibrationPreference(boolean overrideDnd) {
+            String summary = overrideDnd ? getContext().getString(R.string.enabled_for_dnd) : "";
             if (mEnableVibrateCheckBox != null) {
                 if (overrideDnd) {
                     // If DND is enabled, always enable vibration.
                     mEnableVibrateCheckBox.setChecked(true);
                 }
                 // Grey out the preference if DND is overridden.
+                // and update the summary
                 mEnableVibrateCheckBox.setEnabled(!overrideDnd);
+                mEnableVibrateCheckBox.setSummary(summary);
+            }
+            if (mAlertToneCheckBox != null) {
+                if (overrideDnd) {
+                    // If DND is enabled, always enable tone.
+                    mAlertToneCheckBox.setChecked(true);
+                }
+                // Grey out the preference if DND is overridden.
+                // and update the summary
+                mAlertToneCheckBox.setEnabled(!overrideDnd);
+                mAlertToneCheckBox.setSummary(summary);
             }
         }
 

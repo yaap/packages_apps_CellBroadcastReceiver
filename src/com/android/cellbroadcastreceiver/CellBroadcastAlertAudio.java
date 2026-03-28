@@ -423,7 +423,7 @@ public class CellBroadcastAlertAudio extends Service implements TextToSpeech.OnI
             case AudioManager.RINGER_MODE_NORMAL:
             default:
                 if (DBG) log("Ringer mode: normal");
-                mEnableAudio = true;
+                mEnableAudio = prefs.getBoolean(CellBroadcastSettings.KEY_ENABLE_ALERT_TONE, true);
                 break;
         }
 

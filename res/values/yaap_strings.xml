@@ -18,4 +18,6 @@
     <string name="enable_led_flash_summary">Flash the led for incoming severe alerts</string>
     <string name="handle_in_call_title">Alert in-call</string>
     <string name="handle_in_call_summary">Handle alerts during a phone call</string>
+    <string name="enable_alert_tone_title">Tone</string>
+    <string name="enabled_for_dnd">Always enabled when override DND is on</string>
 </resources>
