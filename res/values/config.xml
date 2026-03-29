@@ -272,7 +272,7 @@
     <!-- Whether to display a notification with the pop-up dialog in the foreground when the device
     has active connections to companion devices.
     TODO: enable this feature by default in the future. -->
-    <bool name="show_notification_if_connected_to_companion_devices">false</bool>
+    <bool name="show_notification_if_connected_to_companion_devices">true</bool>
 
     <!-- Whether to display a notification with pop-up dialog in the foreground.
     KR carriers mandate to always show notifications along with alert dialog.  -->

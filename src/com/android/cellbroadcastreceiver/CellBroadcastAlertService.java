@@ -528,7 +528,11 @@ public class CellBroadcastAlertService extends Service {
                     .getCellBroadcastChannelRangeFromMessage(cbm);
 
             // KR carriers mandate to always show notifications along with alert dialog.
-            if (res.getBoolean(R.bool.show_alert_dialog_with_notification) ||
+            boolean showNotificationsDefault = res.getBoolean(
+                    R.bool.show_alert_dialog_with_notification);
+            boolean showNotifications = prefs.getBoolean(
+                    CellBroadcastSettings.KEY_SHOW_NOTIFICATION, showNotificationsDefault);
+            if (showNotifications ||
                     // to support emergency alert on companion devices use flag
                     // show_notification_if_connected_to_companion_devices instead.
                     (res.getBoolean(R.bool.show_notification_if_connected_to_companion_devices)

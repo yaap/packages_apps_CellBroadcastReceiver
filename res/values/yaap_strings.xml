@@ -21,4 +21,6 @@
     <string name="enable_alert_tone_title">Tone</string>
     <string name="enabled_for_dnd">Always enabled when override DND is on</string>
     <string name="enabled_for_dnd_alt">May be enabled anyways for the most severe alerts</string>
+    <string name="show_notification_title">Notification</string>
+    <string name="show_notification_summary">Always show a notification with the dialog</string>
 </resources>

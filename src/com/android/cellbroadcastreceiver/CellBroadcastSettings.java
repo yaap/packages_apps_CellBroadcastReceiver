@@ -172,6 +172,7 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
     public static final String KEY_ENABLE_ALERT_TONE = "enable_alert_tone";
     public static final String KEY_ENABLE_LED_FLASH = "enable_led_flash";
     public static final String KEY_HANDLE_IN_CALL = "handle_in_call";
+    public static final String KEY_SHOW_NOTIFICATION = "show_notification";
 
     /* End of user preferences keys section. */
 
@@ -302,7 +303,8 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
                 .remove(KEY_OPERATOR_DEFINED_ALERTS)
                 .remove(KEY_ENABLE_ALERT_TONE)
                 .remove(KEY_ENABLE_LED_FLASH)
-                .remove(KEY_HANDLE_IN_CALL);
+                .remove(KEY_HANDLE_IN_CALL)
+                .remove(KEY_SHOW_NOTIFICATION);
         // If the device is in test harness mode, reset main toggle should only happen on the
         // first boot.
         if (!ActivityManager.isRunningInUserTestHarness()) {
@@ -375,6 +377,7 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
         private TwoStatePreference mAlertToneCheckBox;
         private TwoStatePreference mEnableLedCheckBox;
         private TwoStatePreference mInCallCheckBox;
+        private TwoStatePreference mNotificationCheckBox;
 
         private final BroadcastReceiver mTestingModeChangedReceiver = new BroadcastReceiver() {
             @Override
@@ -431,6 +434,7 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
             mAlertToneCheckBox = (TwoStatePreference) findPreference(KEY_ENABLE_ALERT_TONE);
             mEnableLedCheckBox = (TwoStatePreference) findPreference(KEY_ENABLE_LED_FLASH);
             mInCallCheckBox = (TwoStatePreference) findPreference(KEY_HANDLE_IN_CALL);
+            mNotificationCheckBox = (TwoStatePreference) findPreference(KEY_SHOW_NOTIFICATION);
 
             PackageManager pm = getActivity().getPackageManager();
             if (!pm.hasSystemFeature(PackageManager.FEATURE_WATCH)) {
@@ -610,6 +614,9 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
             }
             if (mInCallCheckBox != null) {
                 mInCallCheckBox.setOnPreferenceChangeListener(startConfigServiceListener);
+            }
+            if (mNotificationCheckBox != null) {
+                mNotificationCheckBox.setOnPreferenceChangeListener(startConfigServiceListener);
             }
 
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -1842,6 +1849,8 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
                 return R.bool.enable_led_flash;
             case KEY_HANDLE_IN_CALL:
                 return R.bool.enable_alert_handling_during_call;
+            case KEY_SHOW_NOTIFICATION:
+                return R.bool.show_alert_dialog_with_notification;
             default:
                 return 0;
         }
