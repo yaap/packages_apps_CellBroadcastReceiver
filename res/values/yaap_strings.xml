@@ -23,4 +23,6 @@
     <string name="enabled_for_dnd_alt">May be enabled anyways for the most severe alerts</string>
     <string name="show_notification_title">Notification</string>
     <string name="show_notification_summary">Always show a notification with the dialog</string>
+    <string name="alert_dialog_bottom_title">Bottom dialog</string>
+    <string name="alert_dialog_bottom_summary">Show a less intrusive alert dialog at the bottom</string>
 </resources>

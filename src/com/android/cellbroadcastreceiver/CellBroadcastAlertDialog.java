@@ -687,7 +687,11 @@ public class CellBroadcastAlertDialog extends Activity {
     private void setWindowBottom() {
         // some OEMs require that the alert window is moved to the bottom of the screen to avoid
         // blocking other screen content
-        if (getResources().getBoolean(R.bool.alert_dialog_bottom)) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean bottomDefault = getResources().getBoolean(R.bool.alert_dialog_bottom);
+        boolean isBottom = prefs.getBoolean(
+                CellBroadcastSettings.KEY_ALERT_DIALOG_BOTTOM, bottomDefault);
+        if (isBottom) {
             Window window = getWindow();
             WindowManager.LayoutParams params = window.getAttributes();
             params.height = WindowManager.LayoutParams.WRAP_CONTENT;

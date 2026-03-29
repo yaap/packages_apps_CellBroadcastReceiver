@@ -153,6 +153,11 @@
                           android:summary="@string/override_dnd_summary"
                           android:title="@string/override_dnd_title" />
 
+        <SwitchPreferenceCompat android:defaultValue="@bool/show_alert_dialog_with_notification"
+                          android:key="alert_dialog_bottom"
+                          android:summary="@string/alert_dialog_bottom_summary"
+                          android:title="@string/alert_dialog_bottom_title" />
+
         <SwitchPreferenceCompat android:defaultValue="@bool/enable_alert_speech_default"
                           android:key="enable_alert_speech"
                           android:summary="@string/enable_alert_speech_summary"
