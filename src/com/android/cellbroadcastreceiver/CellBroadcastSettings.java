@@ -656,7 +656,8 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
          * DND settings.
          */
         private void updateVibrationPreference(boolean overrideDnd) {
-            String summary = overrideDnd ? getContext().getString(R.string.enabled_for_dnd) : "";
+            String summary = overrideDnd ? getContext().getString(R.string.enabled_for_dnd)
+                                         : getContext().getString(R.string.enabled_for_dnd_alt);
             if (mEnableVibrateCheckBox != null) {
                 if (overrideDnd) {
                     // If DND is enabled, always enable vibration.
