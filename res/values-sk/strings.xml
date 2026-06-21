@@ -26,7 +26,7 @@
     <skip />
     <string name="cell_broadcast_settings_not_available" msgid="3908142962162375221">"Bezdrôtové tiesňové upozornenia nie sú pre tohto používateľa dostupné"</string>
     <string name="button_dismiss" msgid="1234221657930516287">"OK"</string>
-    <string name="no_cell_broadcasts" msgid="7554779730107421769">"Žiadne predchádzajúce upozornenia"</string>
+    <string name="no_cell_broadcasts" msgid="7554779730107421769">"Žiadne predchádzajúce výstrahy"</string>
     <string name="menu_preferences" msgid="3596514894131599202">"Nastavenia"</string>
     <string name="menu_delete_all" msgid="3940997343921149800">"Odstrániť vysielania"</string>
     <string name="message_options" msgid="3178489901903589574">"Možnosti správy"</string>
@@ -63,7 +63,7 @@
     <string name="notification_channel_broadcast_messages_in_voicecall" msgid="3291001780110813190">"Tiesňové upozornenia v hlasovom hovore"</string>
     <string name="notification_channel_settings_updates" msgid="6779759372516475085">"Automatické zmeny nastavení bezdrôtových tiesňových upozornení na základe SIM karty"</string>
     <string name="enable_alerts_master_toggle_title" msgid="1457904343636699446">"Povoliť výstrahy"</string>
-    <string name="enable_alerts_master_toggle_summary" msgid="5583168548073938617">"Prijímať bezdrôtové tiesňové upozornenia"</string>
+    <string name="enable_alerts_master_toggle_summary" msgid="5583168548073938617">"Prijímať bezdrôtové tiesňové výstrahy"</string>
     <string name="alert_reminder_interval_title" msgid="3283595202268218149">"Pripomenutie výstrah"</string>
     <string name="enable_alert_speech_title" msgid="8052104771053526941">"Čítať upozornenia"</string>
     <string name="enable_alert_speech_summary" msgid="2855629032890937297">"Čítať bezdrôtové tiesňové upozornenia prevodom textu na reč"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Keď používate roaming alebo nemáte aktívnu SIM kartu, môžete dostávať výstrahy, ktoré v týchto nastaveniach nie sú zahrnuté"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Nastavenia boli zmenené"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"Nastavenia bezdrôtových núdzových upozornení boli resetované, pretože bola vymenená SIM karta"</string>
+    <string name="button_translate" msgid="905455737012993000">"Preložiť"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"Preklad nie je k dispozícii"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"Chcete zapnúť preklady?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"Preklady sú automatické a môžu obsahovať chyby"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Zapnúť"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"Nie, vďaka"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Vyžaduje sa stiahnutie"</string>
+    <string name="download_language_message" msgid="417229699977464547">"Ak chcete prekladať správy bez internetového pripojenia, musíte si v Nastaveniach stiahnuť ďalší jazykový balík"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Nastavenia"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Teraz nie"</string>
+    <string name="button_map" msgid="5182272283825950016">"Mapa"</string>
 </resources>

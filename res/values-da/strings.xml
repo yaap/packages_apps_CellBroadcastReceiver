@@ -141,7 +141,7 @@
     <string name="cmas_opt_out_dialog_text" msgid="4820577535626084938">"Du er i øjeblikket tilmeldt mobilbaseret varsling. Vil du fortsætte med at modtage disse?"</string>
     <string name="cmas_opt_out_button_yes" msgid="7248930667195432936">"Ja"</string>
     <string name="cmas_opt_out_button_no" msgid="3110484064328538553">"Nej"</string>
-    <string name="cb_list_activity_title" msgid="1433502151877791724">"Historik for advarsler"</string>
+    <string name="cb_list_activity_title" msgid="1433502151877791724">"Historik for varsler"</string>
     <string name="action_delete" msgid="7435661404543945861">"Slet"</string>
     <string name="action_detail_info" msgid="8486524382178381810">"Vis oplysninger"</string>
   <string-array name="alert_reminder_interval_entries">
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Når du benytter roaming eller ikke har et aktivt SIM-kort, modtager du muligvis visse varslinger, der ikke er inkluderet i disse indstillinger"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Dine indstillinger har ændret sig"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"Indstillingerne for mobilbaseret varsling blev nulstillet, fordi du skiftede SIM-kortet"</string>
+    <string name="button_translate" msgid="905455737012993000">"Oversæt"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"En oversættelse er ikke tilgængelig"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"Vil du aktivere oversættelser?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"Oversættelser er automatiske og kan indeholde fejl"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Aktivér"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"Nej tak"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Download påkrævet"</string>
+    <string name="download_language_message" msgid="417229699977464547">"Hvis du vil oversætte beskeder uden internetforbindelse, skal du downloade en ekstra sprogpakke i Indstillinger"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Indstillinger"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Ikke nu"</string>
+    <string name="button_map" msgid="5182272283825950016">"Kort"</string>
 </resources>

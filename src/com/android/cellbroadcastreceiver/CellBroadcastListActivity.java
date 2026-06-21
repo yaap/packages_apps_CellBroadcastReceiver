@@ -60,6 +60,7 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.modules.utils.build.SdkLevel;
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 import com.android.settingslib.widget.SettingsThemeHelper;
+import com.android.cellbroadcastreceiver.R;
 
 import java.util.ArrayList;
 
@@ -77,10 +78,14 @@ public class CellBroadcastListActivity extends CollapsingToolbarBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         boolean isWatch = getPackageManager().hasSystemFeature(PackageManager.FEATURE_WATCH);
+        int contentFrameId = com.android.settingslib.collapsingtoolbar.R.id.content_frame;
         // for backward compatibility on R devices or wearable devices due to small screen device.
         mHideToolbar = !SdkLevel.isAtLeastS() || isWatch;
         if (mHideToolbar) {
-            setCustomizeContentView(R.layout.cell_broadcast_list_collapsing_no_toobar);
+            setCustomizeContentView(R.layout.cell_broadcast_list_collapsing_no_toolbar);
+        }
+        if (isWatch) {
+            contentFrameId = R.id.content_frame;
         }
         super.onCreate(savedInstanceState);
         if (mHideToolbar) {
@@ -106,12 +111,10 @@ public class CellBroadcastListActivity extends CollapsingToolbarBaseActivity {
         FragmentManager fm = getFragmentManager();
 
         // Create the list fragment and add it as our sole content.
-        if (fm.findFragmentById(com.android.settingslib.collapsingtoolbar.R.id.content_frame)
-                == null) {
+        if (fm.findFragmentById(contentFrameId) == null) {
             mListFragment = new CursorLoaderListFragment();
             mListFragment.setActivity(this);
-            fm.beginTransaction().add(com.android.settingslib.collapsingtoolbar.R.id.content_frame,
-                    mListFragment).commit();
+            fm.beginTransaction().add(contentFrameId, mListFragment).commit();
         }
 
         if (CellBroadcastSettings.getResourcesForDefaultSubId(getApplicationContext()).getBoolean(
@@ -468,14 +471,39 @@ public class CellBroadcastListActivity extends CollapsingToolbarBaseActivity {
         }
 
         private void updateNoAlertTextVisibility() {
-            TextView noAlertsTextView = getActivity().findViewById(R.id.empty);
-            if (noAlertsTextView != null) {
-                noAlertsTextView.setVisibility(!hasAlertsInHistory()
-                        ? View.VISIBLE : View.INVISIBLE);
-                getListView().setLongClickable(hasAlertsInHistory());
-                if (!hasAlertsInHistory()) {
-                    getListView().setContentDescription(getString(R.string.no_cell_broadcasts));
+            boolean hasAlerts = hasAlertsInHistory();
+            boolean showEmptyView = !hasAlerts;
+
+            TextView emptyView = getActivity().findViewById(R.id.empty);
+            View emptyZeroStateView = getActivity().findViewById(R.id.empty_zerostate);
+
+            if (emptyView == null) {
+                return;
+            }
+
+            if (showEmptyView) {
+                boolean useZeroStateView = !mIsWatch && emptyZeroStateView != null
+                        && SettingsThemeHelper.isExpressiveTheme(getActivity());
+
+                if (useZeroStateView) {
+                    emptyView.setVisibility(View.GONE);
+                    emptyZeroStateView.setVisibility(View.VISIBLE);
+                } else {
+                    emptyView.setVisibility(View.VISIBLE);
+                    if (emptyZeroStateView != null) {
+                        emptyZeroStateView.setVisibility(View.GONE);
+                    }
                 }
+            } else {
+                emptyView.setVisibility(mIsWatch ? View.INVISIBLE : View.GONE);
+                if (emptyZeroStateView != null) {
+                    emptyZeroStateView.setVisibility(View.GONE);
+                }
+            }
+
+            getListView().setLongClickable(hasAlerts);
+            if (showEmptyView) {
+                getListView().setContentDescription(getString(R.string.no_cell_broadcasts));
             }
         }
 

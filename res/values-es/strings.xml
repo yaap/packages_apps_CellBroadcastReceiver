@@ -99,7 +99,7 @@
     <string name="enable_alert_vibrate_title" msgid="5421032189422312508">"Vibración"</string>
     <string name="enable_alert_vibrate_summary" msgid="4733669825477146614"></string>
     <string name="override_dnd_title" msgid="5120805993144214421">"Las alertas sonarán siempre a todo volumen"</string>
-    <string name="override_dnd_summary" msgid="8760249766972256385">"Ignorar No molestar y otros ajustes de volumen. Si está desactivado, las alertas importantes seguirán sonando a todo volumen."</string>
+    <string name="override_dnd_summary" msgid="8760249766972256385">"Ignorar No molestar y otros ajustes de volumen. Si está desactivado, las alertas más críticas seguirán sonando a todo volumen."</string>
     <string name="enable_area_update_info_alerts_title" msgid="3442042268424617226">"Difusiones de información actualizada de la zona"</string>
     <string name="enable_area_update_info_alerts_summary" msgid="6437816607144264910">"Mostrar información actualizada en el estado de la SIM"</string>
     <string name="cmas_category_heading" msgid="3923503130776640717">"Categoría de la alerta:"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Si usas roaming o no tienes una SIM activa, puede que recibas algunas alertas que no se incluyan en estos ajustes"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Tus ajustes han cambiado"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"Los ajustes de las alertas de emergencia inalámbricas se han restablecido porque se ha cambiado de SIM"</string>
+    <string name="button_translate" msgid="905455737012993000">"Traducir"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"Traducción no disponible"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"¿Activar traducciones?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"Las traducciones son automáticas y pueden contener errores"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Activar"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"No, gracias"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Requiere descarga"</string>
+    <string name="download_language_message" msgid="417229699977464547">"Para traducir mensajes sin conexión a Internet, tendrás que descargar un paquete de idioma adicional en Ajustes"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Ajustes"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Ahora no"</string>
+    <string name="button_map" msgid="5182272283825950016">"Mapa"</string>
 </resources>

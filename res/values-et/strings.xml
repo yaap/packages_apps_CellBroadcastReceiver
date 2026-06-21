@@ -26,7 +26,7 @@
     <skip />
     <string name="cell_broadcast_settings_not_available" msgid="3908142962162375221">"Juhtmevabade hädaolukorra teatiste seaded pole selle kasutaja puhul saadaval"</string>
     <string name="button_dismiss" msgid="1234221657930516287">"OK"</string>
-    <string name="no_cell_broadcasts" msgid="7554779730107421769">"Varasemaid teatisi ei ole"</string>
+    <string name="no_cell_broadcasts" msgid="7554779730107421769">"Varasemaid teatisi ei ole."</string>
     <string name="menu_preferences" msgid="3596514894131599202">"Seaded"</string>
     <string name="menu_delete_all" msgid="3940997343921149800">"Kustuta saated"</string>
     <string name="message_options" msgid="3178489901903589574">"Sõnumite valikud"</string>
@@ -63,9 +63,9 @@
     <string name="notification_channel_broadcast_messages_in_voicecall" msgid="3291001780110813190">"Hädaolukorra teatised häälkõnes"</string>
     <string name="notification_channel_settings_updates" msgid="6779759372516475085">"WEA seadete automaatsed muudatused SIM-kaardi põhjal"</string>
     <string name="enable_alerts_master_toggle_title" msgid="1457904343636699446">"Luba teatised"</string>
-    <string name="enable_alerts_master_toggle_summary" msgid="5583168548073938617">"Saate juhtmevabalt hädaolukorra teatisi"</string>
+    <string name="enable_alerts_master_toggle_summary" msgid="5583168548073938617">"Saate eriolukorra raadiosideteatisi"</string>
     <string name="alert_reminder_interval_title" msgid="3283595202268218149">"Teatiste meeldetuletus"</string>
-    <string name="enable_alert_speech_title" msgid="8052104771053526941">"Märguandesõnumi esitamine kõnena"</string>
+    <string name="enable_alert_speech_title" msgid="8052104771053526941">"Loe teatis ette"</string>
     <string name="enable_alert_speech_summary" msgid="2855629032890937297">"Kõnesünteesi funktsiooni kasutamine juhtmevabade hädaolukorra teatiste esitamiseks kõnena"</string>
     <string name="alert_reminder_dialog_title" msgid="2299010977651377315">"Meeldetuletuse heli esitatakse tavapärase helitugevusega"</string>
     <string name="emergency_alert_history_title" msgid="8310173569237268431">"Eriolukorra teatiste ajalugu"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Kui kasutate rändlust või teil ei ole aktiivset SIM-kaarti, võite näha märguandeid, mida nendes seadetes pole."</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Teie seaded muutusid"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"Eriolukorra raadiosideteatiste seaded lähtestati, sest vahetasite SIM-i"</string>
+    <string name="button_translate" msgid="905455737012993000">"Tõlgi"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"Tõlge pole saadaval"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"Kas lülitada tõlked sisse?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"Tõlked on automaatsed ja võivad sisaldada vigu."</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Lülita sisse"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"Tänan, ei"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Vaja on alla laadida keelepakett"</string>
+    <string name="download_language_message" msgid="417229699977464547">"Sõnumite ilma internetiühenduseta tõlkimiseks peate seadetes alla laadima täiendava keelepaketi."</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Seaded"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Mitte praegu"</string>
+    <string name="button_map" msgid="5182272283825950016">"Kaart"</string>
 </resources>

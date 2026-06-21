@@ -26,7 +26,7 @@
     <skip />
     <string name="cell_broadcast_settings_not_available" msgid="3908142962162375221">"Le impostazioni per gli avvisi di emergenza wireless non sono disponibili per questo utente"</string>
     <string name="button_dismiss" msgid="1234221657930516287">"OK"</string>
-    <string name="no_cell_broadcasts" msgid="7554779730107421769">"Nessuna allerta precedente"</string>
+    <string name="no_cell_broadcasts" msgid="7554779730107421769">"Nessun avviso precedente"</string>
     <string name="menu_preferences" msgid="3596514894131599202">"Impostazioni"</string>
     <string name="menu_delete_all" msgid="3940997343921149800">"Elimina trasmissioni"</string>
     <string name="message_options" msgid="3178489901903589574">"Opzioni messaggio"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Se stai usando il roaming o non hai una SIM attiva, potresti ricevere alcuni avvisi non inclusi in queste impostazioni"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Le tue impostazioni sono state modificate"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"Le impostazioni degli avvisi di emergenza wireless sono state ripristinate a causa del cambio della SIM"</string>
+    <string name="button_translate" msgid="905455737012993000">"Traduci"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"Traduzione non disponibile"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"Vuoi attivare le traduzioni?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"Le traduzioni sono automatiche e potrebbero contenere errori"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Attiva"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"No, grazie"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Download necessario"</string>
+    <string name="download_language_message" msgid="417229699977464547">"Per tradurre i messaggi senza una connessione a internet, dovrai scaricare un pacchetto di lingue aggiuntive in Impostazioni"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Impostazioni"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Non ora"</string>
+    <string name="button_map" msgid="5182272283825950016">"Mappa"</string>
 </resources>

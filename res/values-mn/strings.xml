@@ -141,7 +141,7 @@
     <string name="cmas_opt_out_dialog_text" msgid="4820577535626084938">"Та одоогоор утасгүй сүлжээгээр дамжуулах гамшгийн аюулын дохиог хүлээн авч байна. Та утасгүй сүлжээгээр дамжуулах гамшгийн аюулын дохиог үргэлжлүүлэн авах уу?"</string>
     <string name="cmas_opt_out_button_yes" msgid="7248930667195432936">"Тийм"</string>
     <string name="cmas_opt_out_button_no" msgid="3110484064328538553">"Үгүй"</string>
-    <string name="cb_list_activity_title" msgid="1433502151877791724">"Онцгой байдлын сэрэмжлүүлгийн түүх"</string>
+    <string name="cb_list_activity_title" msgid="1433502151877791724">"Утасгүй яаралтай тусламжийн сэрэмжлүүлгийн түүх"</string>
     <string name="action_delete" msgid="7435661404543945861">"Устгах"</string>
     <string name="action_detail_info" msgid="8486524382178381810">"Дэлгэрэнгүйг харуулах"</string>
   <string-array name="alert_reminder_interval_entries">
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Та роуминг хийж байгаа эсвэл идэвхтэй SIM-гүй үедээ эдгээр тохиргоонд багтаагүй зарим сэрэмжлүүлгийг авч магадгүй"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Таны тохиргоо өөрчлөгдсөн"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"Таны SIM өөрчлөгдсөн тул утасгүй яаралтай тусламжийн сэрэмжлүүлгийн тохиргоог шинэчилсэн"</string>
+    <string name="button_translate" msgid="905455737012993000">"Орчуулах"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"Орчуулгыг ашиглах боломжгүй"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"Орчуулгыг асаах уу?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"Орчуулгыг автоматжуулсан бөгөөд алдаатай байж болзошгүй"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Асаах"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"Үгүй, баярлалаа"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Татах шаардлагатай"</string>
+    <string name="download_language_message" msgid="417229699977464547">"Та интернэт холболтгүйгээр мессеж орчуулахын тулд Тохиргооноос нэмэлт хэлний багцыг татах шаардлагатай"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Тохиргоо"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Одоо биш"</string>
+    <string name="button_map" msgid="5182272283825950016">"Газрын зураг"</string>
 </resources>

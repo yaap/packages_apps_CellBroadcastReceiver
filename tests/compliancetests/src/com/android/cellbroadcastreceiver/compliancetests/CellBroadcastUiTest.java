@@ -17,6 +17,8 @@
 package com.android.cellbroadcastreceiver.compliancetests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeTrue;
 
@@ -27,6 +29,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.LocaleList;
 import android.provider.Settings;
@@ -41,8 +45,11 @@ import android.support.test.uiautomator.UiScrollable;
 import android.support.test.uiautomator.UiSelector;
 import android.support.test.uiautomator.Until;
 import android.text.TextUtils;
+import android.view.translation.TranslationCapability;
+import android.view.translation.TranslationSpec;
 import android.widget.LinearLayout;
 
+import com.android.cellbroadcastreceiver.flags.Flags;
 import com.android.internal.util.HexDump;
 
 import junitparams.JUnitParamsRunner;
@@ -55,9 +62,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 @RunWith(JUnitParamsRunner.class)
 public class CellBroadcastUiTest extends CellBroadcastBaseTest {
@@ -88,12 +103,17 @@ public class CellBroadcastUiTest extends CellBroadcastBaseTest {
 
     private boolean mIsOptOutDialogHandled = false;
 
+    private boolean mLocationEnableChanaged;
+
     @Before
     public void beforeTest() throws Exception {
         super.beforeTest();
 
         if ("testEmergencyAlertSettingsUi".equals(mTestNameRule.getMethodName())
-                || "testAlertUiOnReceivedAlert".equals(mTestNameRule.getMethodName())) {
+                || "testAlertUiOnReceivedAlert".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithoutGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnTranslatorFeature".equals(mTestNameRule.getMethodName())) {
             KeyguardManager keyguardManager = getContext().getSystemService(KeyguardManager.class);
             assumeTrue("cannot test under secure keyguard",
                     keyguardManager != null && !keyguardManager.isKeyguardSecure());
@@ -102,7 +122,10 @@ public class CellBroadcastUiTest extends CellBroadcastBaseTest {
                 dismissKeyGuard();
             }
         }
-        if ("testAlertUiOnReceivedAlert".equals(mTestNameRule.getMethodName())) {
+        if ("testAlertUiOnReceivedAlert".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithoutGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnTranslatorFeature".equals(mTestNameRule.getMethodName())) {
             PackageManager pm = getContext().getPackageManager();
             assumeTrue("FULL_ACCESS_CELL_BROADCAST_HISTORY permission "
                     + "is necessary for this test", pm.checkPermission(
@@ -110,7 +133,10 @@ public class CellBroadcastUiTest extends CellBroadcastBaseTest {
                     "com.android.shell") != PackageManager.PERMISSION_DENIED);
         }
         if ("testEmergencyAlertSettingsUi".equals(mTestNameRule.getMethodName())
-                || "testAlertUiOnReceivedAlert".equals(mTestNameRule.getMethodName())) {
+                || "testAlertUiOnReceivedAlert".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithoutGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnTranslatorFeature".equals(mTestNameRule.getMethodName())) {
             try {
                 // close disturbing dialog if exist
                 UiObject2 yesButton = sDevice.wait(Until.findObject(YES_BUTTON), 100);
@@ -134,15 +160,22 @@ public class CellBroadcastUiTest extends CellBroadcastBaseTest {
             }
             sDevice.pressHome();
         }
+        if ("testAlertUiOnReceivedAlertWithGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithoutGeo".equals(mTestNameRule.getMethodName())) {
+            mLocationEnableChanaged = setLocationEnabled(false);
+        }
     }
 
     @After
-    public void afterTest() {
+    public void afterTest() throws Exception {
         if (sPreconditionError != 0) {
             return;
         }
 
-        if ("testAlertUiOnReceivedAlert".equals(mTestNameRule.getMethodName())
+        if (("testAlertUiOnReceivedAlert".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithoutGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnTranslatorFeature".equals(mTestNameRule.getMethodName()))
                 && (sSerialId > 0)) {
             deleteMessageWithShellPermissionIdentity();
 
@@ -162,9 +195,20 @@ public class CellBroadcastUiTest extends CellBroadcastBaseTest {
         }
 
         if ("testEmergencyAlertSettingsUi".equals(mTestNameRule.getMethodName())
-                || "testAlertUiOnReceivedAlert".equals(mTestNameRule.getMethodName())) {
+                || "testAlertUiOnReceivedAlert".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithoutGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnTranslatorFeature".equals(mTestNameRule.getMethodName())) {
             LocaleManager localeManager = getContext().getSystemService(LocaleManager.class);
             localeManager.setApplicationLocales(sPackageName, LocaleList.getEmptyLocaleList());
+        }
+
+        if ("testAlertUiOnReceivedAlertWithGeo".equals(mTestNameRule.getMethodName())
+                || "testAlertUiOnReceivedAlertWithoutGeo".equals(mTestNameRule.getMethodName())) {
+            if (mLocationEnableChanaged) {
+                setLocationEnabled(true);
+            }
+            sDevice.pressHome();
         }
     }
 
@@ -212,6 +256,202 @@ public class CellBroadcastUiTest extends CellBroadcastBaseTest {
         }
     }
 
+    @Test
+    @Parameters(method = "paramsCarrierAndChannelForGeoTest")
+    public void testAlertUiOnReceivedAlertWithGeo(String carrierName, String channel)
+            throws Throwable {
+        logd("CellBroadcastUiTest#testAlertUiOnReceivedAlertWithGeo");
+
+        assumeTrue("Skipping test because Map flag is disabled",
+                Flags.enableCellbroadcastMapViewer());
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("cellbroadcastgeo:"));
+        List<ResolveInfo> resolveInfoList = getContext().getPackageManager()
+                .queryIntentActivities(mapIntent, PackageManager.MATCH_SYSTEM_ONLY);
+        boolean isMapActivityAvailable = resolveInfoList != null && !resolveInfoList.isEmpty();
+        assumeTrue("Skipping test because Map activity is not available", isMapActivityAvailable);
+
+        CellBroadcastCarrierTestConfig carrierInfo =
+                new CellBroadcastCarrierTestConfig(sCarriersObject, carrierName);
+        // setup mccmnc
+        if (sInputMccMnc == null || (sInputMccMnc != null
+                && !sInputMccMnc.equals(carrierInfo.mMccMnc))) {
+            setSimInfo(carrierName, carrierInfo.mMccMnc);
+        }
+
+        // change language of CBR
+        changeLocale(carrierInfo, sPackageName, true);
+
+        // receive broadcast message with geo info
+        receiveBroadcastMessageWithGeo(channel);
+
+        logd("carrier " + carrierName + ", Map button should be shown" + " for channel " + channel);
+        String languageTag =
+                (carrierInfo.mLanguageTag != null) ? carrierInfo.mLanguageTag : "en-US";
+        verifyMapButtonIsShown(languageTag);
+    }
+
+    @Test
+    @Parameters(method = "paramsCarrierAndChannelForGeoTest")
+    public void testAlertUiOnReceivedAlertWithoutGeo(String carrierName, String channel)
+            throws Throwable {
+        logd("CellBroadcastUiTest#testAlertUiOnReceivedAlertWithoutGeo");
+
+        assumeTrue("Skipping test because Map flag is disabled",
+                Flags.enableCellbroadcastMapViewer());
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("cellbroadcastgeo:"));
+        List<ResolveInfo> resolveInfoList = getContext().getPackageManager()
+                .queryIntentActivities(mapIntent, PackageManager.MATCH_SYSTEM_ONLY);
+        boolean isMapActivityAvailable = resolveInfoList != null && !resolveInfoList.isEmpty();
+        assumeTrue("Skipping test because Map activity is not available", isMapActivityAvailable);
+
+        CellBroadcastCarrierTestConfig carrierInfo =
+                new CellBroadcastCarrierTestConfig(sCarriersObject, carrierName);
+        // setup mccmnc
+        if (sInputMccMnc == null || (sInputMccMnc != null
+                && !sInputMccMnc.equals(carrierInfo.mMccMnc))) {
+            setSimInfo(carrierName, carrierInfo.mMccMnc);
+        }
+
+        // change language of CBR
+        changeLocale(carrierInfo, sPackageName, true);
+
+        // receive broadcast message with geo info
+        receiveBroadcastMessage(channel, null, true);
+
+        logd("carrier " + carrierName + ", Map button should not be shown" + " for channel "
+                + channel);
+        String languageTag =
+                (carrierInfo.mLanguageTag != null) ? carrierInfo.mLanguageTag : "en-US";
+        verifyMapButtonIsNotShown(languageTag);
+    }
+
+    //@Test // TODO: enable after feature config is enabled
+    @Parameters(method = "paramsCarrierAndChannelForTranslateFeature")
+    public void testAlertUiOnTranslatorFeature(String carrierName, String channel)
+            throws Throwable {
+        logd("CellBroadcastUiTest#testAlertUiOnTranslatorFeature");
+
+        assumeTrue("Skipping test because Translation flag is disabled",
+                Flags.enableCellbroadcastTranslation());
+
+        CellBroadcastCarrierTestConfig carrierInfo =
+                new CellBroadcastCarrierTestConfig(sCarriersObject, carrierName);
+        CellBroadcastChannelTestConfig channelInfo =
+                new CellBroadcastChannelTestConfig(sChannelsObject, carrierName, channel);
+
+        // setup mccmnc
+        if (sInputMccMnc == null || (sInputMccMnc != null
+                && !sInputMccMnc.equals(carrierInfo.mMccMnc))) {
+            setSimInfo(carrierName, carrierInfo.mMccMnc);
+        }
+
+        // change language to non main language (ja-JP)
+        String targetLanguage = "ja-JP";
+        LocaleManager localeManager = getContext().getSystemService(LocaleManager.class);
+        localeManager.setApplicationLocales(sPackageName,
+                LocaleList.forLanguageTags(targetLanguage));
+        boolean isSettingsTranslationAvailable = isTranslationServiceAvailable();
+        if (!channelInfo.mChannelDefaultValue || TextUtils.isEmpty(channelInfo.mExpectedTitle)
+                || channelInfo.mFilteredLanguageBySecondLanguagePref
+                || channelInfo.mIsEnabledOnTestMode
+                || !channelInfo.mNeedDisplay
+                || !isSettingsTranslationAvailable) {
+            // let's skip for alerttitle
+            return;
+        }
+
+        boolean isMessageEnglish = !channelInfo.mIgnoreMessageByLanguageFilter
+                || (channelInfo.mIgnoreMessageByLanguageFilter && carrierInfo.mLanguageTag != null
+                && !carrierInfo.mLanguageTag.equals("en"));
+        logd("isMessageEnglish " + isMessageEnglish);
+        // receive broadcast message
+        receiveBroadcastMessage(channel, channelInfo.mWarningType, isMessageEnglish);
+
+        logd("carrier " + carrierName + ", Translate button should be shown"
+                + " for channel " + channel);
+
+        verifyTranslateButtonIsShown(targetLanguage);
+    }
+
+    /**
+     * Checks if the on-device translation API is available by verifying if the settings intent
+     * can be retrieved and if there are supported translation capabilities.
+     * This ensures that the test runs only when the device supports the required translation
+     * features.
+     *
+     * @return true if the TranslationManager is available, provides a settings intent, and supports
+     * text-to-text translation; false otherwise.
+     */
+    private boolean isTranslationServiceAvailable() {
+        android.view.translation.TranslationManager tm =
+                getContext().getSystemService(android.view.translation.TranslationManager.class);
+        if (tm == null) {
+            return false;
+        }
+
+        if (tm.getOnDeviceTranslationSettingsActivityIntent() == null) {
+            return false;
+        }
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        final long timeOut = 400;
+        Future<Boolean> future = executor.submit(() -> {
+            try {
+                Set<TranslationCapability> capabilities =
+                        tm.getOnDeviceTranslationCapabilities(TranslationSpec.DATA_FORMAT_TEXT,
+                                TranslationSpec.DATA_FORMAT_TEXT);
+                return capabilities != null && !capabilities.isEmpty();
+            } catch (Exception e) {
+                logd("Error checking translation capabilities" + e);
+                return false;
+            }
+        });
+
+        try {
+            return future.get(timeOut, TimeUnit.MILLISECONDS);
+        } catch (TimeoutException e) {
+            logd("Timeout checking translation capabilities in test. Assuming not supported.");
+            future.cancel(true);
+            return false;
+        } catch (Exception e) {
+            logd("Exception during translation capability check" + e);
+            return false;
+        } finally {
+            executor.shutdown();
+        }
+    }
+
+    /**
+     * It finds the button using the changed language setting (languageTag) as an argument.
+     */
+    private void verifyTranslateButtonIsShown(String languageTag) {
+        UiObject2 translateButton = findTranslateButton(languageTag);
+        assertNotNull("Translate button should be visible on the screen", translateButton);
+        assertTrue("Translate button should be enabled", translateButton.isEnabled());
+    }
+
+    /**
+     * Finds the "Translate" button on the screen using its localized text content.
+     *
+     * @param languageTag The language tag used for the app locale (e.g., "ja-JP").
+     * @return The UiObject2 representing the Translate button, or null if not found.
+     */
+    private UiObject2 findTranslateButton(String languageTag) {
+        try {
+            Context targetContext = getContext().createPackageContext(
+                    sPackageName, Context.CONTEXT_IGNORE_SECURITY);
+            Configuration config = new Configuration();
+            config.setLocales(LocaleList.forLanguageTags(languageTag));
+            Context localizedContext = targetContext.createConfigurationContext(config);
+            String translateButtonText = localizedContext.getString(
+                    localizedContext.getResources().getIdentifier(
+                            "button_translate", "string", sPackageName));
+            return sDevice.wait(Until.findObject(By.text(translateButtonText)), UI_TIMEOUT);
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new RuntimeException("Target package context not found", e);
+        }
+    }
+
     public void receiveBroadcastMessage(String channelName, String warningType,
             boolean isMessageEnglish) {
         int channel = Integer.parseInt(channelName);
@@ -227,6 +467,28 @@ public class CellBroadcastUiTest extends CellBroadcastBaseTest {
         String etwsWarningType = TextUtils.isEmpty(warningType) ? "00" : warningType;
         String pduCode = isEtws ? etwsWarningType : langCode;
         String hexString = serialHexString + hexChannel + pduCode + "11D4F29C0E0AB2CB727A08";
+        byte[] data = HexDump.hexStringToByteArray(hexString);
+
+        sMockModemManager.newBroadcastSms(sSlotId, data);
+    }
+
+    /**
+     * receive BroadcastMessage with geo information
+     * @param channelName
+     */
+    public void receiveBroadcastMessageWithGeo(String channelName) {
+        int channel = Integer.parseInt(channelName);
+        String hexChannel = String.format("%04X", channel);
+
+        sSerialId++;
+        String serialHexString = String.format("%04X", sSerialId);
+        logd("receiveBroadcastMessageWithGeo, channel = " + hexChannel
+                + ", serialIdHexString = " + serialHexString);
+
+        String hexString = "011112" + serialHexString + "010154747A0E4ACF41E576597E2EBBC77950985D96"
+                + "D341F4F29C9E769F41EDF27C1E3E971B000000000000000000000000000000000000000000000000"
+                + "00000000000000000000000000000000000000000000002321002078B53B6CA4B84B53988A4B86B5"
+                + "3958A4C2DB53B54A4C28B53B6CA4B840100CFF";
         byte[] data = HexDump.hexStringToByteArray(hexString);
 
         sMockModemManager.newBroadcastSms(sSlotId, data);
@@ -269,6 +531,42 @@ public class CellBroadcastUiTest extends CellBroadcastBaseTest {
         assertEquals("carrier=" + carrier + ", channel=" + channel
                 + ", output title=" + outputTitle
                 + ", expected title=" + title, expectedResult, result);
+    }
+
+    /**
+     * Finds the "Map" button on the screen using its localized text content.
+     *
+     * @param languageTag The language tag used for the app locale (e.g., "ja-JP").
+     * @return The UiObject2 representing the Map button, or null if not found.
+     */
+    private UiObject2 findMapButton(String languageTag) {
+        try {
+            Context targetContext = getContext().createPackageContext(
+                    sPackageName, Context.CONTEXT_IGNORE_SECURITY);
+            Configuration config = new Configuration();
+            config.setLocales(LocaleList.forLanguageTags(languageTag));
+            Context localizedContext = targetContext.createConfigurationContext(config);
+            String mapButtonText = localizedContext.getString(
+                    localizedContext.getResources().getIdentifier(
+                            "button_map", "string", sPackageName));
+            return sDevice.wait(Until.findObject(By.text(mapButtonText)), UI_TIMEOUT);
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new RuntimeException("Target package context not found", e);
+        }
+    }
+
+    /**
+     * It finds the button using the changed language setting (languageTag) as an argument.
+     */
+    private void verifyMapButtonIsShown(String languageTag) {
+        UiObject2 mapButton = findMapButton(languageTag);
+        assertNotNull("Map button should be visible on the screen", mapButton);
+        assertTrue("Map button should be enabled", mapButton.isEnabled());
+    }
+
+    private void verifyMapButtonIsNotShown(String languageTag) {
+        UiObject2 mapButton = findMapButton(languageTag);
+        assertNull("Map button should not be visible on the screen", mapButton);
     }
 
     /** Pulls down notification shade and verifies that message text is found. */
@@ -374,7 +672,7 @@ public class CellBroadcastUiTest extends CellBroadcastBaseTest {
                         .className(android.widget.Switch.class.getName()));
             }
             assertEquals("carrierName=" + carrierName + ", settingName=" + settingName
-                    + ", expectedSwitchValue=" + settingInfo.mIsToggleAvailability,
+                            + ", expectedSwitchValue=" + settingInfo.mIsToggleAvailability,
                     settingInfo.mExpectedSwitchValue, itemSwitch.isChecked());
         }
     }
@@ -484,5 +782,26 @@ public class CellBroadcastUiTest extends CellBroadcastBaseTest {
         } finally {
             uiAutomation.dropShellPermissionIdentity();
         }
+    }
+
+    private boolean setLocationEnabled(boolean enable) throws Exception {
+        boolean isChanged = false;
+        sDevice.executeShellCommand("am start -a android.settings.LOCATION_SOURCE_SETTINGS");
+
+        UiObject2 locationSwitch = sDevice.wait(
+                Until.findObject(By.res("android:id/switch_widget")), UI_TIMEOUT);
+
+        if (locationSwitch != null) {
+            boolean isChecked = locationSwitch.isChecked();
+            if (enable && !isChecked) {
+                locationSwitch.click();
+                isChanged = true;
+            } else if (!enable && isChecked) {
+                locationSwitch.click();
+                isChanged = true;
+            }
+        }
+        sDevice.pressBack();
+        return isChanged;
     }
 }

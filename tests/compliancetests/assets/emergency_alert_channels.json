@@ -118,56 +118,61 @@
   },
   "norway": {
     "4370": {
-      "title": "Immediate danger",  // 'Akutt fare' == 'Immediate danger'
+      "title": "Akutt fare",  //"Immediate danger"
       "default_value": "true",
       "toggle_avail": "false"
     },
     "4383": {
-      "title": "Immediate danger", // 'Akutt fare' == 'Immediate danger'
+      "title": "Akutt fare",  //"Immediate danger"
       "default_value": "true",
-      "toggle_avail": "false"
+      "toggle_avail": "false",
+      "filter_language": "language_setting"
     },
     "4371": {
-      "title": "Immediate danger", // 'Akutt fare' == 'Immediate danger'
+      "title": "Akutt fare", //"Immediate danger"
       "default_value": "true",
       "toggle_avail": "false"
     },
     "4384": {
-      "title": "Immediate danger", // 'Akutt fare' == 'Immediate danger'
+      "title": "Akutt fare", //"Immediate danger"
       "default_value": "true",
-      "toggle_avail": "false"
+      "toggle_avail": "false",
+      "filter_language": "language_setting"
     },
     "4375": {
-      "title": "Important warning", // 'Viktig melding' == 'Important warning'
+      "title": "Viktig melding", //"Important warning"
       "default_value": "true",
       "toggle_avail": "false",
       "end_channel": "4376"
     },
     "4388": {
-      "title": "Important warning", // 'Viktig melding' == 'Important warning'
+      "title": "Viktig melding", //"Important warning"
       "default_value": "true",
       "toggle_avail": "true",
-      "end_channel": "4389"
+      "end_channel": "4389",
+      "filter_language": "language_setting"
     },
     "4380": {
-      "title": "Test",  // 'Test' == 'Test'
+      "title": "Test",  //"Test"
       "default_value": "false",
       "toggle_avail": "true"
     },
     "4393": {
-      "title": "Test",  // 'Test' == 'Test'
+      "title": "Test",  //"Test"
       "default_value": "false",
-      "toggle_avail": "true"
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
     },
     "4381": {
-      "title": "Exercise", // 'Øvelse' == 'Exercise'
+      "title": "Øvelse", //"Exercise"
       "default_value": "false",
       "toggle_avail": "true"
     },
     "4394": {
-      "title": "Exercise", // 'Øvelse' == 'Exercise'
+      "title": "Øvelse", //"Exercise"
       "default_value": "false",
-      "toggle_avail": "true"
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
     },
     "4400": {
       "title": "",
@@ -1185,64 +1190,70 @@
       "toggle_avail": "false"
     },
     "4370": {
-      "title": "RO-ALERT : Imminent Risk Alert",
+      "title": "RO-ALERT : Alertă de Risc Iminent", //"RO-ALERT : Imminent Risk Alert"
       "default_value": "true",
       "toggle_avail": "false"
     },
     "4383": {
-      "title": "RO-ALERT : Imminent Risk Alert",
+      "title": "RO-ALERT : Alertă de Risc Iminent", //"RO-ALERT : Imminent Risk Alert"
       "default_value": "true",
-      "toggle_avail": "false"
+      "toggle_avail": "false",
+      "filter_language": "language_setting"
     },
     "4371": {
-      "title": "RO-ALERT : Extreme Alert",
+      "title": "RO-ALERT : Alertă Extremă", //"RO-ALERT : Extreme Alert"
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4384": {
-      "title": "RO-ALERT : Extreme Alert",
+      "title": "RO-ALERT : Alertă Extremă", //"RO-ALERT : Extreme Alert"
       "default_value": "true",
-      "toggle_avail": "true"
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
     },
     "4375": {
-      "title": "RO-ALERT : Severe Alert",
+      "title": "RO-ALERT : Alertă Severă", //"RO-ALERT : Severe Alert"
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4388": {
-      "title": "RO-ALERT : Severe Alert",
+      "title": "RO-ALERT : Alertă Severă", //"RO-ALERT : Severe Alert"
       "default_value": "true",
-      "toggle_avail": "true"
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
     },
     "4379": {
-      "title": "RO-ALERT : Missing Child Alert",
+      "title": "RO-ALERT : Alertă dispariție copil", //"RO-ALERT : Missing Child Alert"
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4392": {
-      "title": "RO-ALERT : Missing Child Alert",
+      "title": "RO-ALERT : Alertă dispariție copil", //"RO-ALERT : Missing Child Alert"
       "default_value": "true",
-      "toggle_avail": "true"
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
     },
     "4396": {
-      "title": "RO-ALERT : Public Safety Alert",
+      "title": "RO-ALERT : Alertă pentru siguranță publică", //"RO-ALERT : Public Safety Alert"
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4397": {
-      "title": "RO-ALERT : Public Safety Alert",
+      "title": "RO-ALERT : Alertă pentru siguranță publică", //"RO-ALERT : Public Safety Alert"
       "default_value": "true",
-      "toggle_avail": "true"
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
     },
     "4381": {
-      "title": "RO-ALERT : Exercise Alerts",
+      "title": "RO-ALERT : Alertă de exercițiu", //"RO-ALERT : Exercise Alerts"
       "default_value": "false",
       "toggle_avail": "true"
     },
     "4394": {
-      "title": "RO-ALERT : Exercise Alerts",
+      "title": "RO-ALERT : Alertă de exercițiu", //"RO-ALERT : Exercise Alerts"
       "default_value": "false",
-      "toggle_avail": "true"
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
     }
   },
   "italy": {
@@ -1381,37 +1392,37 @@
   },
   "latvia": {
     "4370": {
-      "title": "Presidential Alert",
+      "title": "Sarkanais brīdinājums", //"Presidential Alert"
       "default_value": "true",
       "toggle_avail": "false"
     },
     "4371": {
-      "title": "Extreme Alert",
+      "title": "Oranžais brīdinājums", //"Extreme Alert"
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4373": {
-      "title": "Severe Alert",
+      "title": "Dzeltenais brīdinājums", //"Severe Alert"
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4379": {
-      "title": "Amber Alert",
+      "title": "Bērna nolaupīšanas brīdinājums", //"Amber Alert"
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4380": {
-      "title": "Monthly Test Alert",
+      "title": "Ikmēneša testa brīdinājums", //"Monthly Test Alert"
       "default_value": "false",
       "toggle_avail": "true"
     },
     "4381": {
-      "title": "Exercise Alert",
+      "title": "Mācību brīdinājums", //"Exercise Alert"
       "default_value": "false",
       "toggle_avail": "true"
     },
     "4396": {
-      "title": "End of Threat",
+      "title": "Apdraudējuma beigas", //"End of Threat"
       "default_value": "false",
       "toggle_avail": "true"
     }
@@ -1683,71 +1694,71 @@
       "alert_type":"notification"
     },
     "4370": {
-      "title": "",
+      "title": "Emergency Alert",
       "default_value": "true",
       "toggle_avail": "false"
     },
     "4383": {
-      "title": "",
+      "title": "Emergency Alert",
       "default_value": "true",
       "toggle_avail": "false"
     },
     "919": {
-      "title": "",
+      "title": "Emergency Alert",
       "default_value": "true",
       "toggle_avail": "false"
     },
     "4371": {
-      "title": "",
+      "title": "Extreme Alert",
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4372"
     },
     "4384": {
-      "title": "",
+      "title": "Extreme Alert",
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4385"
     },
     "4373": {
-      "title": "",
+      "title": "Severe Alert",
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4378"
     },
     "4386": {
-      "title": "",
+      "title": "Severe Alert",
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4391"
     },
     "4379": {
-      "title": "",
+      "title": "Amber Alert Messages in Spanish",
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4380": {
-      "title": "",
+      "title": "Test Alert Messages in Spanish",
       "default_value": "false",
       "toggle_avail": "false"
     },
     "519": {
-      "title": "",
+      "title": "Test Alert Messages in Spanish",
       "default_value": "false",
       "toggle_avail": "false"
     },
     "4381": {
-      "title": "",
+      "title": "Exercise Alert Messages in Spanish",
       "default_value": "true",
       "toggle_avail": "true"
     },
     "6400": {
-      "title": "",
+      "title": "Information Messages in Spanish",
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4396": {
-      "title": "",
+      "title": "Reserved for future deployments",
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4399"
@@ -1855,13 +1866,13 @@
     },
     "4371": {
       "title": "Pre-Alerta de Protección Civil", //"Civil Protection Pre-Alert",
-      "default_value": "false",
+      "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4372"
     },
     "4384": {
       "title": "Pre-Alerta de Protección Civil", //"Civil Protection Pre-Alert",
-      "default_value": "false",
+      "default_value": "true",
       "toggle_avail": "true",
       "filter_language": "language_setting",
       "end_channel": "4385"
@@ -1873,6 +1884,43 @@
     },
     "4393": {
       "title": "Pruebas", //"Test",
+      "default_value": "false",
+      "toggle_avail": "false",
+      "filter_language": "language_setting"
+    }
+  },
+  "andorra": {
+    "4370": {
+      "title": "Civil Protection Alert",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4383": {
+      "title": "Civil Protection Alert",
+      "default_value": "true",
+      "toggle_avail": "false",
+      "filter_language": "language_setting"
+    },
+    "4371": {
+      "title": "Civil Protection Pre-Alert",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "end_channel": "4372"
+    },
+    "4384": {
+      "title": "Civil Protection Pre-Alert",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "filter_language": "language_setting",
+      "end_channel": "4385"
+    },
+    "4380": {
+      "title": "Test Alert",
+      "default_value": "false",
+      "toggle_avail": "false"
+    },
+    "4393": {
+      "title": "Test Alert",
       "default_value": "false",
       "toggle_avail": "false",
       "filter_language": "language_setting"
@@ -1984,71 +2032,71 @@
       "toggle_avail": "false"
     },
     "4370": {
-      "title": "Presidential alert",
+      "title": "Alerta presidencial", //"Presidential alert"
       "default_value": "true",
       "toggle_avail": "false"
     },
     "4380": {
-      "title": "Required Monthly Test",
+      "title": "Prueba mensual obligatoria", //"Required Monthly Test"
       "default_value": "false",
       "toggle_avail": "true"
     },
     "4371": {
-      "title": "Emergency alert: Extreme",
+      "title": "Alerta de emergencia: extrema", //"Emergency alert: Extreme"
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4372"
     },
     "4384": {
-      "title": "Emergency alert: Extreme",
+      "title": "Alerta de emergencia: extrema", //"Emergency alert: Extreme"
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4385"
     },
     "4373": {
-      "title": "Emergency alert: Severe",
+      "title": "Alerta de emergencia: grave", //"Emergency alert: Severe"
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4374": {
-      "title": "Emergency alert: Severe",
+      "title": "Alerta de emergencia: grave", //"Emergency alert: Severe"
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4378"
     },
     "4386": {
-      "title": "Emergency alert: Severe",
+      "title": "Alerta de emergencia: grave", //"Emergency alert: Severe"
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4391"
     },
     "4379": {
-      "title": "Child abduction (Amber alert)",
+      "title": "Secuestro de menores (alerta Amber)", //"Child abduction (Amber alert)"
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4392": {
-      "title": "Child abduction (Amber alert)",
+      "title": "Secuestro de menores (alerta Amber)", //"Child abduction (Amber alert)"
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4381": {
-      "title": "Emergency alert (exercise)",
+      "title": "Alerta de emergencia (simulacro)", //"Emergency alert (exercise)"
       "default_value": "false",
       "toggle_avail": "true"
     },
     "4382": {
-      "title": "Emergency alert (exercise)",
+      "title": "Alerta de emergencia (simulacro)", //"Emergency alert (exercise)"
       "default_value": "false",
       "toggle_avail": "true"
     },
     "919": {
-      "title": "Emergency alert",
+      "title": "Alerta de emergencia", //"Emergency alert"
       "default_value": "true",
       "toggle_avail": "false"
     },
     "50": {
-      "title": "Broadcast messages",
+      "title": "Mensajes de difusión", //"Broadcast messages"
       "default_value": "true",
       "toggle_avail": "false",
       "display":"false"
@@ -2350,14 +2398,12 @@
       "title": "Warning alert",
       "default_value": "true",
       "toggle_avail": "true",
-      "alert_type":"notification",
       "end_channel": "4372"
     },
     "4384": {
       "title": "Warning alert",
       "default_value": "true",
       "toggle_avail": "true",
-      "alert_type":"notification",
       "filter_language": "language_setting",
       "end_channel": "4385"
     },
@@ -2365,7 +2411,6 @@
       "title": "Warning alert",
       "default_value": "true",
       "toggle_avail": "true",
-      "alert_type":"notification",
       "filter_language": "language_setting",
       "end_channel": "922"
     },
@@ -4202,16 +4247,94 @@
       "toggle_avail": "true"
     }
   },
-  "hungary_telekom": {
+  "hungary": {
     "4370": {
-      "title": "Presidential alert",
+      "title": "Emergency alert",
       "default_value": "true",
       "toggle_avail": "false"
     },
     "4383": {
-      "title": "Presidential alert",
+      "title": "Emergency alert",
       "default_value": "true",
-      "toggle_avail": "false"
+      "toggle_avail": "false",
+      "filter_language": "language_setting"
+    },
+    "4372": {
+      "title": "Extreme alert",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4385": {
+      "title": "Extreme alert",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4378": {
+      "title": "Severe alert",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4391": {
+      "title": "Severe alert",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4379": {
+      "title": "Missing person",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4392": {
+      "title": "Missing person",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4375": {
+      "title": "Silent alert",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4388": {
+      "title": "Silent alert",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4396": {
+      "title": "Public safety warning",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4397": {
+      "title": "Public safety warning",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4398": {
+      "title": "Test message",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4399": {
+      "title": "Test message",
+      "default_value": "false",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4381": {
+      "title": "Exercise alert",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4394": {
+      "title": "Exercise alert",
+      "default_value": "false",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
     }
   },
   "croatia_hrvatski": {
@@ -4450,6 +4573,48 @@
       "toggle_avail": "false"
     }
   },
+  "kuwait": {
+    "4370": {
+      "title": "National Warning Alert",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4383": {
+      "title": "National Warning Alert",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4371": {
+      "title": "Emergency Alert",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4384": {
+      "title": "Emergency Alert",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4373": {
+      "title": "General Alert",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4386": {
+      "title": "General Alert",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4380": {
+      "title": "Test Alert",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4393": {
+      "title": "Test Alert",
+      "default_value": "false",
+      "toggle_avail": "true"
+    }
+  },
   "ukraine": {
     "4352": {
       "title": "",
@@ -4505,93 +4670,6 @@
       "toggle_avail": "true"
     }
   },
-  "australia": {
-    "4352": {
-      "title": "",
-      "default_value": "true",
-      "toggle_avail": "false",
-      "end_channel": "4354"
-    },
-    "4356": {
-      "title": "",
-      "default_value": "true",
-      "toggle_avail": "false"
-    },
-    "4370": {
-      "title": "Presidential alert",
-      "default_value": "true",
-      "toggle_avail": "false"
-    },
-    "4383": {
-      "title": "Presidential alert",
-      "default_value": "true",
-      "toggle_avail": "false"
-    },
-    "4371": {
-      "title": "Emergency alert: Extreme",
-      "default_value": "true",
-      "toggle_avail": "true",
-      "end_channel": "4372"
-    },
-    "4384": {
-      "title": "Emergency alert: Extreme",
-      "default_value": "true",
-      "toggle_avail": "true",
-      "end_channel": "4385"
-    },
-    "4373": {
-      "title": "Emergency alert: Severe",
-      "default_value": "true",
-      "toggle_avail": "true",
-      "end_channel": "4378"
-    },
-    "4386": {
-      "title": "Emergency alert: Severe",
-      "default_value": "true",
-      "toggle_avail": "true",
-      "end_channel": "4391"
-    },
-    "4379": {
-      "title": "Child abduction (Amber alert)",
-      "default_value": "true",
-      "toggle_avail": "true"
-    },
-    "4392": {
-      "title": "Child abduction (Amber alert)",
-      "default_value": "true",
-      "toggle_avail": "true"
-    },
-    "4380": {
-      "title": "Required Monthly Test",
-      "default_value": "false",
-      "toggle_avail": "true"
-    },
-    "4393": {
-      "title": "Required Monthly Test",
-      "default_value": "false",
-      "toggle_avail": "true"
-    },
-    "4381": {
-      "title": "Emergency alert (exercise)",
-      "default_value": "false",
-      "toggle_avail": "true"
-    },
-    "4394": {
-      "title": "Emergency alert (exercise)",
-      "default_value": "false",
-      "toggle_avail": "true"
-    },
-    "4382": {
-      "title": "Emergency alert (operator)",
-      "default_value": "false",
-      "toggle_avail": "true"
-    },
-    "4395": {
-      "title": "Emergency alert (operator)",
-      "default_value": "false",
-      "toggle_avail": "true"
-    }
-  },
   "newzealand": {
     "4352": {
       "title": "",
@@ -4636,71 +4714,71 @@
   },
   "mexico": {
     "4370": {
-      "title": "",
+      "title": "Emergency Alert",
       "default_value": "true",
       "toggle_avail": "false"
     },
     "4383": {
-      "title": "",
+      "title": "Emergency Alert",
       "default_value": "true",
       "toggle_avail": "false"
     },
     "919": {
-      "title": "",
+      "title": "Emergency Alert",
       "default_value": "true",
       "toggle_avail": "false"
     },
     "4371": {
-      "title": "",
+      "title": "Extreme Alert",
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4372"
     },
     "4384": {
-      "title": "",
+      "title": "Extreme Alert",
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4385"
     },
     "4373": {
-      "title": "",
+      "title": "Severe Alert",
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4378"
     },
     "4386": {
-      "title": "",
+      "title": "Severe Alert",
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4391"
     },
     "4379": {
-      "title": "",
+      "title": "Amber Alert Messages in Spanish",
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4380": {
-      "title": "",
+      "title": "Test Alert Messages in Spanish",
       "default_value": "false",
       "toggle_avail": "false"
     },
     "519": {
-      "title": "",
+      "title": "Test Alert Messages in Spanish",
       "default_value": "false",
       "toggle_avail": "false"
     },
     "4381": {
-      "title": "",
+      "title": "Exercise Alert Messages in Spanish",
       "default_value": "true",
       "toggle_avail": "true"
     },
     "6400": {
-      "title": "",
+      "title": "Information Messages in Spanish",
       "default_value": "true",
       "toggle_avail": "true"
     },
     "4396": {
-      "title": "",
+      "title": "Reserved for future deployments",
       "default_value": "true",
       "toggle_avail": "true",
       "end_channel": "4399"
@@ -4957,6 +5035,292 @@
     "4399": {
       "title": "EU Test",
       "default_value": "true",
+      "toggle_avail": "true"
+    }
+  },
+  "Australia": {
+    "4370": {
+      "title": "Critical AusAlert",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4383": {
+      "title": "Critical AusAlert",
+      "default_value": "true",
+      "toggle_avail": "false",
+      "filter_language": "language_setting"
+    },
+    "4371": {
+      "title": "Priority AusAlert",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4384": {
+      "title": "Priority AusAlert",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4381": {
+      "title": "Exercise",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4394": {
+      "title": "Exercise",
+      "default_value": "false",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4398": {
+      "title": "State/Local Test",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4399": {
+      "title": "State/Local Test",
+      "default_value": "false",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4400": {
+      "title": "",
+      "default_value": "true",
+      "toggle_avail": "false"
+    }
+  },
+  "Bahrain": {
+    "4370": {
+      "title": "National Emergency Alert",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4383": {
+      "title": "National Emergency Alert",
+      "default_value": "true",
+      "toggle_avail": "false",
+      "filter_language": "language_setting"
+    },
+    "4371": {
+      "title": "Imminent Threat Emergency Alert",
+      "default_value": "true",
+      "toggle_avail": "false",
+      "end_channel": "4372"
+    },
+    "4384": {
+      "title": "Imminent Threat Emergency Alert",
+      "default_value": "true",
+      "toggle_avail": "false",
+      "end_channel": "4385",
+      "filter_language": "language_setting"
+    },
+    "4373": {
+      "title": "Public Safety Warning Alert",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "end_channel": "4378"
+    },
+    "4386": {
+      "title": "Public Safety Warning Alert",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "end_channel": "4391",
+      "filter_language": "language_setting"
+    },
+    "4380": {
+      "title": "Test Alert",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4393": {
+      "title": "Test Alert",
+      "default_value": "false",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4381": {
+      "title": "Exercise",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4394": {
+      "title": "Exercise",
+      "default_value": "false",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4382": {
+      "title": "Test Alert",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4395": {
+      "title": "Test Alert",
+      "default_value": "false",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    }
+  },
+  "Singapore": {
+    "4370": {
+      "title": "SG Alert",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4383": {
+      "title": "SG Alert",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4380": {
+      "title": "Test Alert",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4393": {
+      "title": "Test Alert",
+      "default_value": "false",
+      "toggle_avail": "true"
+    }
+  },
+  "cyprus": {
+    "4370": {
+      "title": "CY-Alert Extreme National Alert",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4383": {
+      "title": "CY-Alert Extreme National Alert",
+      "default_value": "true",
+      "toggle_avail": "false",
+      "filter_language": "language_setting"
+    },
+    "4371": {
+      "title": "CY-Alert Extreme threats",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4384": {
+      "title": "CY-Alert Extreme threats",
+      "default_value": "true",
+      "toggle_avail": "false",
+      "filter_language": "language_setting"
+    },
+    "4375": {
+      "title": "CY-Alert Severe threats",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4388": {
+      "title": "CY-Alert Severe threats",
+      "default_value": "true",
+      "toggle_avail": "false",
+      "filter_language": "language_setting"
+    },
+    "4396": {
+      "title": "CY-Alert Public safety message",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4397": {
+      "title": "CY-Alert Public safety message",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4379": {
+      "title": "CY-Alert Kidnapping - Missing person",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4392": {
+      "title": "CY-Alert Kidnapping - Missing person",
+      "default_value": "true",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4380": {
+      "title": "CY-Alert State and local tests",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4393": {
+      "title": "CY-Alert State and local tests",
+      "default_value": "false",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    },
+    "4381": {
+      "title": "CY-Alert Exercise tests",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4394": {
+      "title": "CY-Alert Exercise tests",
+      "default_value": "false",
+      "toggle_avail": "true",
+      "filter_language": "language_setting"
+    }
+  },
+  "morocco": {
+    "4370": {
+      "title": "MAROC ALERT - Very severe alert (red level)",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4383": {
+      "title": "MAROC ALERT - Very severe alert (red level)",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4371": {
+      "title": "MAROC ALERT - severe alert (orange level)",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4384": {
+      "title": "MAROC ALERT - severe alert (orange level)",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4375": {
+      "title": "MAROC ALERT - Very important alert (yellow level)",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4388": {
+      "title": "MAROC ALERT - Very important alert (yellow level)",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4396": {
+      "title": "MAROC ALERT - Important alert (green level)",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4397": {
+      "title": "MAROC ALERT - Important alert (green level)",
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "4379": {
+      "title": "MAROC ALERT - Alert",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4392": {
+      "title": "MAROC ALERT - Alert",
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "4380": {
+      "title": "MAROC ALERT - Test alert",
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "4393": {
+      "title": "MAROC ALERT - Test alert",
+      "default_value": "false",
       "toggle_avail": "true"
     }
   }

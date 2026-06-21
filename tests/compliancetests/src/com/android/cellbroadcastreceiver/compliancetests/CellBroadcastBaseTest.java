@@ -37,10 +37,12 @@ import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyCallback;
 import android.telephony.TelephonyManager;
+import android.telephony.UiccSlotInfo;
 import android.telephony.mockmodem.IRadioMessagingImpl;
 import android.telephony.mockmodem.MockModemConfigBase.SimInfoChangedResult;
 import android.telephony.mockmodem.MockModemManager;
 import android.telephony.mockmodem.MockSimService;
+import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -77,6 +79,7 @@ public class CellBroadcastBaseTest {
     protected static final int ERROR_NO_TELEPHONY = 2;
     protected static final int ERROR_MULTI_SIM = 3;
     protected static final int ERROR_MOCK_MODEM_DISABLE = 4;
+    protected static final int ERROR_ESIM_ONLY_DEVICE = 5;
 
     protected static final String ALLOW_MOCK_MODEM_PROPERTY = "persist.radio.allow_mock_modem";
     protected static final boolean DEBUG = !"user".equals(Build.TYPE);
@@ -188,6 +191,12 @@ public class CellBroadcastBaseTest {
         if (!isMockModemAllowed()) {
             Log.i(TAG, "Mock Modem is not allowed");
             sPreconditionError = ERROR_MOCK_MODEM_DISABLE;
+            return;
+        }
+
+        if (isEsimOnlyDevice(getContext())) {
+            Log.i(TAG, "Esim Only Device");
+            sPreconditionError = ERROR_ESIM_ONLY_DEVICE;
             return;
         }
 
@@ -345,6 +354,58 @@ public class CellBroadcastBaseTest {
             for (Iterator<String> iterator = channelsForCarrier.keys(); iterator.hasNext();) {
                 String channelId = iterator.next();
                 result.add(new String[]{carrierName, channelId});
+            }
+        }
+        return result.toArray(new Object[]{});
+    }
+
+    protected Object[] paramsCarrierAndChannelForGeoTest() throws Throwable {
+        logd("paramsCarrierAndChannelForGeoTest");
+        String jsonCarrier = loadJsonFile(CARRIER_LISTS_JSON);
+        JSONObject carriersObject = new JSONObject(jsonCarrier);
+        Iterator<String> carrierList = carriersObject.keys();
+
+        ArrayList<Object> result = new ArrayList<Object>();
+        for (Iterator<String> it = carrierList; it.hasNext();) {
+            String carrierName = it.next();
+            JSONObject carrierObject = carriersObject.getJSONObject(carrierName);
+            String mapSupport = null;
+            try {
+                mapSupport = carrierObject.getString("map_support");
+            } catch (Exception JSONException) {
+            }
+            boolean isMapSupport = false;
+            if (!TextUtils.isEmpty(mapSupport) && mapSupport.equals("true")) {
+                isMapSupport = true;
+            }
+            if (isMapSupport) {
+                result.add(new String[]{carrierName, "4370"});
+            }
+        }
+        return result.toArray(new Object[]{});
+    }
+
+    protected Object[] paramsCarrierAndChannelForTranslateFeature() throws Throwable {
+        logd("paramsCarrierAndChannelForTranslateFeature");
+        String jsonCarrier = loadJsonFile(CARRIER_LISTS_JSON);
+        JSONObject carriersObject = new JSONObject(jsonCarrier);
+        Iterator<String> carrierList = carriersObject.keys();
+
+        ArrayList<Object> result = new ArrayList<Object>();
+        for (Iterator<String> it = carrierList; it.hasNext();) {
+            String carrierName = it.next();
+            JSONObject carrierObject = carriersObject.getJSONObject(carrierName);
+            String translateSupport = null;
+            try {
+                translateSupport = carrierObject.getString("translate_support");
+            } catch (Exception JSONException) {
+            }
+            boolean isTranslateSupport = false;
+            if (!TextUtils.isEmpty(translateSupport) && translateSupport.equals("true")) {
+                isTranslateSupport = true;
+            }
+            if (isTranslateSupport) {
+                result.add(new String[]{carrierName, "4370"});
             }
         }
         return result.toArray(new Object[]{});
@@ -508,6 +569,28 @@ public class CellBroadcastBaseTest {
             } finally {
                 uiAutomation.dropShellPermissionIdentity();
             }
+        }
+    }
+
+    private static boolean isEsimOnlyDevice(Context context) {
+        TelephonyManager tm = context.getSystemService(TelephonyManager.class);
+        InstrumentationRegistry.getInstrumentation().getUiAutomation()
+                .adoptShellPermissionIdentity(
+                        android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE);
+        try {
+            UiccSlotInfo[] uiccSlotInfos = tm.getUiccSlotsInfo();
+            if (uiccSlotInfos == null) {
+                return false;
+            }
+            for (UiccSlotInfo info : uiccSlotInfos) {
+                if (!info.getIsEuicc()) {
+                    return false;
+                }
+            }
+            return true;
+        } finally {
+            InstrumentationRegistry.getInstrumentation().getUiAutomation()
+                    .dropShellPermissionIdentity();
         }
     }
 }

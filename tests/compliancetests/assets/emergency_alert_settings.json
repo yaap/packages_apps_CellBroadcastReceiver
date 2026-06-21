@@ -48,39 +48,39 @@
     }
   },
   "mexico_telefonica": {
-    "Mensajes de Alerta nivel 1": { //"Alert Messages Level 1"
+    "Alert Messages Level 1": {
       "default_value": "true",
       "toggle_avail": "false"
     },
-    "Mensajes de Alerta nivel 2": { //"Alert Messages Level 2"
+    "Alert Messages Level 2": {
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Mensajes de Alerta nivel 3": { //"Alert Messages Level 3"
+    "Alert Messages Level 3": {
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Mensajes de información en español": { //"Information Messages in Spanish"
+    "Information Messages in Spanish": {
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Mensajes de Alerta Amber en español": { //"Amber Alert Messages in Spanish"
+    "Amber Alert Messages in Spanish": {
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Mensajes de Alerta de Ejercicio en español": { //"Exercise Alert Messages in Spanish"
+    "Exercise Alert Messages in Spanish": {
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Reservados para futuras implementaciones": { //"Reserved for future deployments"
+    "Reserved for future deployments": {
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Avisos del operador": { //"Operator warnings"
+    "Operator warnings": {
       "default_value": "false",
       "toggle_avail": "true"
     },
-    "Las alertas sonarán siempre a todo volumen": { //"Always alert at full volume"
+    "Always alert at full volume": {
       "default_value": "false",
       "toggle_avail": "true"
     }
@@ -152,27 +152,27 @@
     }
   },
   "columbia": {
-    "Extreme threats": {
+    "Amenazas extremas": { //"Extreme threats"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Severe threats": {
+    "Amenazas graves": { //"Severe threats"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "AMBER alerts": {
+    "Alertas AMBER": { //"AMBER alerts"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Test alerts": {
+    "Alertas de prueba": { //"Test alerts"
       "default_value": "false",
       "toggle_avail": "true"
     },
-    "Area update broadcasts": {
+    "Difusiones de información actualizada de la zona": { //"Area update broadcasts"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Always alert at full volume": {
+    "Las alertas sonarán siempre a todo volumen": { //"Always alert at full volume"
       "default_value": "false",
       "toggle_avail": "true"
     }
@@ -502,35 +502,35 @@
     }
   },
   "latvia": {
-    "Extreme Alerts": {
+    "Oranžais brīdinājums": { //"Extreme Alerts"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Severe Alerts": {
+    "Dzeltenais brīdinājums": { //"Severe Alerts"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Missing Child Alerts": {
+    "Bērna pazušanas brīdinājums": { //"Missing Child Alerts"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Required Monthly Test Alerts": {
+    "Ikmēneša testa brīdinājums": { //"Required Monthly Test Alerts"
       "default_value": "false",
       "toggle_avail": "true"
     },
-    "Exercise Alerts": {
+    "Mācību brīdinājums": { //"Exercise Alerts"
       "default_value": "false",
       "toggle_avail": "true"
     },
-    "End of Threat Alerts": {
+    "Apdraudējuma beigu brīdinājums": { //"End of Threat Alerts"
       "default_value": "false",
       "toggle_avail": "true"
     },
-    "Vibration": {
+    "Vibrācija": { //"Vibration"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Always alert at full volume": {
+    "Vienmēr atskaņot brīdinājuma signālu pilnā skaļumā": { //"Always alert at full volume"
       "default_value": "false",
       "toggle_avail": "true"
     }
@@ -640,7 +640,7 @@
     }
   },
   "norway": {
-    "Important warning": { //"Viktig melding"
+    "Viktig melding": { //"Important warning"
       "default_value": "true",
       "toggle_avail": "true"
     },
@@ -648,11 +648,11 @@
       "default_value": "false",
       "toggle_avail": "true"
     },
-    "Vibration": {
+    "Vibrasjon": { //"Vibration"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Always alert at full volume": {
+    "Varsle alltid på fullt volum": { //"Always alert at full volume"
       "default_value": "false",
       "toggle_avail": "true"
     }
@@ -693,7 +693,7 @@
   },
   "spain_telefonica": {
     "Pre-Alerta de Protección Civil": { //"Civil Protection Pre-Alert": {
-      "default_value": "false",
+      "default_value": "true",
       "toggle_avail": "true"
     },
     "Vibración": { //"Vibration": {
@@ -701,6 +701,24 @@
       "toggle_avail": "true"
     },
     "Las alertas sonarán siempre a todo volumen": { //"Always alert at full volume"
+      "default_value": "false",
+      "toggle_avail": "true"
+    }
+  },
+  "andorra": {
+    "Civil Protection Pre-Alert": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Test Alert": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "Vibration": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Always alert at full volume": {
       "default_value": "false",
       "toggle_avail": "true"
     }
@@ -736,31 +754,31 @@
     }
   },
   "romania": {
-    "Extreme threats": {
+    "Pericole extreme": { //"Extreme threats"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Severe threats": {
+    "Pericole grave": { //"Severe threats"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Missing Child Alert": {
+    "Alertă pentru un copil dispărut": { //"Missing Child Alert"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Public Safety Alert": {
+    "Alertă pentru siguranță publică": { //"Public Safety Alert"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Exercise Alerts": {
+    "Alerte de exercițiu": { //"Exercise Alerts"
       "default_value": "false",
       "toggle_avail": "true"
     },
-    "Vibration": {
+    "Vibrație": { //"Vibration"
       "default_value": "true",
       "toggle_avail": "true"
     },
-    "Always alert at full volume": {
+    "Alertează întotdeauna la volum maxim": { //"Always alert at full volume"
       "default_value": "false",
       "toggle_avail": "true"
     }
@@ -1356,7 +1374,35 @@
       "toggle_avail": "true"
     }
   },
-  "hungary_telekom": {
+  "hungary": {
+    "Emergency alert": {
+      "default_value": "true",
+      "toggle_avail": "false"
+    },
+    "Extreme alert": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Severe alert": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Missing person": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Public safety warning": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Test message": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "Silent alert": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
     "Vibration": {
       "default_value": "true",
       "toggle_avail": "true"
@@ -1494,32 +1540,6 @@
       "toggle_avail": "true"
     }
   },
-  "australia": {
-    "Extreme threats": {
-      "default_value": "true",
-      "toggle_avail": "true"
-    },
-    "Severe threats": {
-      "default_value": "true",
-      "toggle_avail": "true"
-    },
-    "AMBER alerts": {
-      "default_value": "true",
-      "toggle_avail": "true"
-    },
-    "Test alerts": {
-      "default_value": "false",
-      "toggle_avail": "true"
-    },
-    "Vibration": {
-      "default_value": "true",
-      "toggle_avail": "true"
-    },
-    "Always alert at full volume": {
-      "default_value": "false",
-      "toggle_avail": "true"
-    }
-  },
   "uk": {
     "Extreme alerts": {
       "default_value": "true",
@@ -1622,6 +1642,24 @@
       "toggle_avail": "true"
     }
   },
+  "kuwait": {
+    "Emergency Alert": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "General Alert": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Test Alert": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "Always alert at full volume": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    }
+  },
   "Slovenia": {
     "Extreme threats": {
       "default_value": "true",
@@ -1645,6 +1683,104 @@
     },
     "Vibration": {
       "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Always alert at full volume": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    }
+  },
+  "Australia": {
+    "Priority AusAlert": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Exercise": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "State/Local Test": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "Vibration": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Always alert at full volume": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    }
+  },
+  "Bahrain": {
+    "Public Safety Alerts": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Government Test Alerts": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "Operator Test Alerts": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "Vibration": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Always alert at full volume": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    }
+  },
+  "Singapore": {
+    "Test alerts": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "Vibration": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Always alert at full volume": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    }
+  },
+  "cyprus": {
+    "Severe threats": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Public safety messages": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Kidnapping - Missing person": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "State and local tests": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "Exercise tests": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    },
+    "Always alert at full volume": {
+      "default_value": "false",
+      "toggle_avail": "true"
+    }
+  },
+  "morocco": {
+    "Alert": {
+      "default_value": "true",
+      "toggle_avail": "true"
+    },
+    "Test alert": {
+      "default_value": "false",
       "toggle_avail": "true"
     },
     "Always alert at full volume": {

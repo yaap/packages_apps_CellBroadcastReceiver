@@ -99,7 +99,7 @@
     <string name="enable_alert_vibrate_title" msgid="5421032189422312508">"Vibracija"</string>
     <string name="enable_alert_vibrate_summary" msgid="4733669825477146614"></string>
     <string name="override_dnd_title" msgid="5120805993144214421">"Uvijek upozori najglasnijom jačinom zvuka"</string>
-    <string name="override_dnd_summary" msgid="8760249766972256385">"Zanemarite funkciju Ne ometaj i druge postavke jačine zvuka. Kada je isključeno, najkritičnija upozorenja i dalje će biti glasna."</string>
+    <string name="override_dnd_summary" msgid="8760249766972256385">"Zanemaruje funkciju Ne ometaj i druge postavke jačine zvuka. Kada je isključeno, najkritičnija upozorenja i dalje će biti glasna."</string>
     <string name="enable_area_update_info_alerts_title" msgid="3442042268424617226">"Emitiranje informacija o ažuriranju područja"</string>
     <string name="enable_area_update_info_alerts_summary" msgid="6437816607144264910">"Prikaz informacija o ažuriranju u statusu SIM kartice"</string>
     <string name="cmas_category_heading" msgid="3923503130776640717">"Kategorija upozorenja:"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Kada ste u romingu ili nemate aktivan SIM, možete dobijati određena obavještenja koja nisu uključena u ovim postavkama"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Postavke su promijenjene"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"Postavke hitnih upozorenja putem bežične mreže su vraćene na zadano jer je SIM promijenjen"</string>
+    <string name="button_translate" msgid="905455737012993000">"Prevedi"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"Prevod nije dostupan"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"Uključiti prevode?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"Prevodi su automatizirani i mogu sadržavati greške"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Uključi"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"Ne, hvala"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Potrebno je preuzeti"</string>
+    <string name="download_language_message" msgid="417229699977464547">"Da prevodite poruke bez internetske veze, trebate preuzeti dodatni jezički paket u Postavkama"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Postavke"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Ne sada"</string>
+    <string name="button_map" msgid="5182272283825950016">"Mapa"</string>
 </resources>

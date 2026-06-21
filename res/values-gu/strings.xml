@@ -26,7 +26,7 @@
     <skip />
     <string name="cell_broadcast_settings_not_available" msgid="3908142962162375221">"આ વપરાશકર્તા માટે વાયરલેસ ઇમર્જન્સી અલર્ટના સેટિંગ ઉપલબ્ધ નથી"</string>
     <string name="button_dismiss" msgid="1234221657930516287">"ઓકે"</string>
-    <string name="no_cell_broadcasts" msgid="7554779730107421769">"કોઈ પાછલી અલર્ટ નથી"</string>
+    <string name="no_cell_broadcasts" msgid="7554779730107421769">"કોઈ પાછલું અલર્ટ નથી"</string>
     <string name="menu_preferences" msgid="3596514894131599202">"સેટિંગ"</string>
     <string name="menu_delete_all" msgid="3940997343921149800">"બ્રોડકાસ્ટ્સ કાઢી નાખો"</string>
     <string name="message_options" msgid="3178489901903589574">"મેસેજના વિકલ્પો"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"જ્યારે તમે રોમિંગમાં હો અથવા તમારી પાસે કોઈ સક્રિય સિમ કાર્ડ ન હોય, ત્યારે તમને આ સેટિંગમાં સમાવેશ ન થયો હોય તેવા કેટલાક અલર્ટ મળે તેમ બની શકે"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"તમારા સેટિંગ બદલાઈ ગયા છે"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"તમારું સિમ કાર્ડ બદલાયું હોવાથી વાયરલેસ ઇમર્જન્સી અલર્ટના સેટિંગ રીસેટ કરવામાં આવ્યા છે"</string>
+    <string name="button_translate" msgid="905455737012993000">"અનુવાદ કરો"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"અનુવાદ અનુપલબ્ધ છે"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"અનુવાદો ચાલુ કરીએ?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"અનુવાદો ઑટોમૅટિક રીતે થાય છે અને તેમાં ભૂલો હોઈ શકે છે"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"ચાલુ કરો"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"ના, આભાર"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"ડાઉનલોડ કરવું જરૂરી છે"</string>
+    <string name="download_language_message" msgid="417229699977464547">"ઇન્ટરનેટ કનેક્શન વિના મેસેજનો અનુવાદ કરવા માટે, તમારે સેટિંગમાં જઈને વધારાનું ભાષા પૅકેજ ડાઉનલોડ કરવું પડશે"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"સેટિંગ"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"હમણાં નહીં"</string>
+    <string name="button_map" msgid="5182272283825950016">"નકશો"</string>
 </resources>

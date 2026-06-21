@@ -85,7 +85,7 @@
     <string name="enable_full_screen_public_safety_messages_title" msgid="1790574642368284876">"Прикажувај пораки на цел екран"</string>
     <string name="enable_full_screen_public_safety_messages_summary" msgid="194171850169012897">"Кога е исклучено, пораките за јавна безбедност сѐ уште се испраќаат како известување"</string>
     <string name="enable_state_local_test_alerts_title" msgid="1012930918171302720">"Државни и локални тестови"</string>
-    <string name="enable_state_local_test_alerts_summary" msgid="780298327377950187">"Добивајте тест-пораки од државните и локалните власти"</string>
+    <string name="enable_state_local_test_alerts_summary" msgid="780298327377950187">"Добивајте пробни пораки од државните и локалните органи"</string>
     <string name="enable_emergency_alerts_message_title" msgid="661894007489847468">"Предупредувања за итни случаи"</string>
     <string name="enable_emergency_alerts_message_summary" msgid="7574617515441602546">"Предупреди за настани опасни по живот"</string>
     <string name="enable_cmas_test_alerts_title" msgid="7194966927004755266">"Пробни предупредувања"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Кога сте во роаминг или немате активна SIM-картичка, може да добивате некои предупредувања што не се опфатени во поставкиве"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Вашите поставки се променети"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"Поставките за безжични предупредувања за итни случаи се ресетираа бидејќи ја променивте SIM-картичката"</string>
+    <string name="button_translate" msgid="905455737012993000">"Превод"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"Преводот е недостапен"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"Да се вклучат преводите?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"Преводите се автоматизирани и може да содржат грешки"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Вклучи"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"Не, фала"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Потребно е преземање"</string>
+    <string name="download_language_message" msgid="417229699977464547">"За да преведувате пораки без интернет-врска, ќе треба да преземете дополнителен јазичен пакет во „Поставки“"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Поставки"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Не сега"</string>
+    <string name="button_map" msgid="5182272283825950016">"Карта"</string>
 </resources>

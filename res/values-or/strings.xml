@@ -16,9 +16,9 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2008319089248760277">"ୱେୟାରଲେସ୍ ଜରୁରୀକାଳୀନ ଆଲର୍ଟ"</string>
+    <string name="app_label" msgid="2008319089248760277">"ୱେୟାରଲେସ ଜରୁରୀକାଳୀନ ଆଲର୍ଟ"</string>
     <string name="sms_cb_settings" msgid="9021266457863671070">"ୱାୟାରଲେସ ଜରୁରୀକାଳୀନ ଆଲର୍ଟ"</string>
-    <string name="sms_cb_sender_name_default" msgid="972946539768958828">"ୱେୟାରଲେସ୍ ଜରୁରୀକାଳୀନ ଆଲର୍ଟ"</string>
+    <string name="sms_cb_sender_name_default" msgid="972946539768958828">"ୱେୟାରଲେସ ଜରୁରୀକାଳୀନ ଆଲର୍ଟ"</string>
     <string name="sms_cb_sender_name_presidential" msgid="5302753979711319380">"ୱାୟାରଲେସ ଜରୁରୀକାଳୀନ ଆଲର୍ଟଗୁଡ଼ିକ"</string>
     <string name="sms_cb_sender_name_emergency" msgid="2937067842997478965">"ୱେୟାରଲେସ ଜରୁରୀକାଳୀନ ଆଲର୍ଟଗୁଡ଼ିକ"</string>
     <string name="sms_cb_sender_name_public_safety" msgid="5230033387708907922">"ସୂଚନାଭିତ୍ତିକ ବିଜ୍ଞପ୍ତି"</string>
@@ -56,7 +56,7 @@
     <string name="public_safety_message" msgid="9119928798786998252">"ଜନସୁରକ୍ଷା ମେସେଜ୍"</string>
     <string name="state_local_test_alert" msgid="8003145745857480200">"ରାଜ୍ୟ/ସ୍ଥାନୀୟ ପରୀକ୍ଷା"</string>
     <string name="emergency_alert" msgid="624783871477634263">"ଅପାତକାଳୀନ ଆଲର୍ଟ"</string>
-    <string name="emergency_alerts_title" msgid="6605036374197485429">"ଅଲର୍ଟ"</string>
+    <string name="emergency_alerts_title" msgid="6605036374197485429">"ଆଲର୍ଟ"</string>
     <string name="notification_channel_broadcast_messages" msgid="880704362482824524">"ବ୍ରୋଡକାଷ୍ଟ ମେସେଜ୍‌"</string>
     <string name="notification_channel_emergency_alerts" msgid="5008287980979183617">"ଜରୁରୀକାଳୀନ ଆଲର୍ଟ"</string>
     <string name="notification_channel_emergency_alerts_high_priority" msgid="3937475297436439073">"ସ୍ୱୀକାର କରାଯାଇନଥିବା ଜରୁରୀକାଳୀନ ଆଲର୍ଟଗୁଡ଼ିକ"</string>
@@ -89,7 +89,7 @@
     <string name="enable_emergency_alerts_message_title" msgid="661894007489847468">"ଜରୁରୀକାଳୀନ ଆଲର୍ଟ"</string>
     <string name="enable_emergency_alerts_message_summary" msgid="7574617515441602546">"ପ୍ରାଣଘାତକ ଘଟଣା ବିଷୟରେ ଚେତାବନୀ"</string>
     <string name="enable_cmas_test_alerts_title" msgid="7194966927004755266">"ଟେଷ୍ଟ ଆଲର୍ଟ"</string>
-    <string name="enable_cmas_test_alerts_summary" msgid="2083089933271720217">"ସୁରକ୍ଷା ଆଲର୍ଟ ସିଷ୍ଟମ୍‌ରୁ ମୋବାଇଲ୍ କମ୍ପାନୀ ଟେଷ୍ଟ ଏବଂ ମାସିକ ଟେଷ୍ଟଗୁଡ଼ିକ ପାଆନ୍ତୁ"</string>
+    <string name="enable_cmas_test_alerts_summary" msgid="2083089933271720217">"ସୁରକ୍ଷା ଆଲର୍ଟ ସିଷ୍ଟମରୁ କେରିଅର ଟେଷ୍ଟ ଏବଂ ମାସିକ ଟେଷ୍ଟଗୁଡ଼ିକ ପାଆନ୍ତୁ"</string>
     <!-- no translation found for enable_exercise_test_alerts_title (6030780598569873865) -->
     <skip />
     <string name="enable_exercise_test_alerts_summary" msgid="4276766794979567304">"ଜରୁରୀକାଳୀନ ଆଲର୍ଟ ପାଆନ୍ତୁ: ବ୍ୟାୟାମ/ଡ୍ରିଲ୍ ମେସେଜ୍"</string>
@@ -151,7 +151,7 @@
     <item msgid="3863339891188103437">"ପ୍ରତି 15 ମିନିଟରେ"</item>
     <item msgid="7388573183644474611">"କେବେ ବି ନୁହେଁ"</item>
   </string-array>
-    <string name="emergency_alert_settings_title_watches" msgid="4477073412799894883">"ୱେୟାରଲେସ୍‌ ଜରୁରୀକାଳୀନ ଅଲର୍ଟ"</string>
+    <string name="emergency_alert_settings_title_watches" msgid="4477073412799894883">"ୱେୟାରଲେସ ଜରୁରୀକାଳୀନ ଅଲର୍ଟ"</string>
     <string name="enable_cmas_presidential_alerts_title" msgid="7293800023375154256">"ରାଷ୍ଟ୍ରପତିଙ୍କ ଦ୍ୱାରା ଜାରି କରାଯାଇଥିବା ଆଲର୍ଟ"</string>
     <string name="enable_cmas_presidential_alerts_summary" msgid="7900094335808247024">"ରାଷ୍ଟ୍ରପତିଙ୍କ ଦ୍ୱାରା ଜାରି କରାଯାଇଥିବା ଜାତୀୟ ଚେତାବନୀ ମେସେଜ୍‌ଗୁଡ଼ିକ। ବନ୍ଦ କରାଯାଇପାରିବ ନାହିଁ।"</string>
     <string name="receive_cmas_in_second_language_title" msgid="1223260365527361964"></string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"ଆପଣ ରୋମିଂରେ ଥିଲେ କିମ୍ବା ଆପଣଙ୍କର କୌଣସି ସକ୍ରିୟ SIM ନଥିଲେ, ଆପଣ ଏହି ସେଟିଂସରେ ଅନ୍ତର୍ଭୁକ୍ତ ନଥିବା କିଛି ଆଲର୍ଟ ପାଇପାରନ୍ତି"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"ଆପଣଙ୍କ ସେଟିଂସକୁ ପରିବର୍ତ୍ତନ କରାଯାଇଛି"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"ଆପଣଙ୍କ SIM ପରିବର୍ତ୍ତନ ହୋଇଥିବା ଯୋଗୁଁ ୱେୟାରଲେସ ଜରୁରୀକାଳୀନ ଆଲର୍ଟ ସେଟିଂସକୁ ରିସେଟ କରାଯାଇଛି"</string>
+    <string name="button_translate" msgid="905455737012993000">"ଅନୁବାଦ କରନ୍ତୁ"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"ଅନୁବାଦ ଉପଲବ୍ଧ ନାହିଁ"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"ଅନୁବାଦ ଚାଲୁ କରିବେ?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"ଅନୁବାଦ ସ୍ୱତଃ ହୋଇଥାଏ ଏବଂ ସେଥିରେ ଭୁଲ ଥାଇପାରେ"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"ଚାଲୁ କରନ୍ତୁ"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"ନା, ଧନ୍ୟବାଦ"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"ଡାଉନଲୋଡ କରିବା ଆବଶ୍ୟକ"</string>
+    <string name="download_language_message" msgid="417229699977464547">"କୌଣସି ଇଣ୍ଟର୍ନେଟ କନେକ୍ସନ ବିନା ମେସେଜଗୁଡ଼ିକୁ ଅନୁବାଦ କରିବା ପାଇଁ ଆପଣଙ୍କୁ ସେଟିଂସରେ ଏକ ଅତିରିକ୍ତ ଭାଷା ପେକେଜ ଡାଉନଲୋଡ କରିବାକୁ ହେବ"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"ସେଟିଂସ"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"ବର୍ତ୍ତମାନ ନୁହେଁ"</string>
+    <string name="button_map" msgid="5182272283825950016">"ମେପ"</string>
 </resources>

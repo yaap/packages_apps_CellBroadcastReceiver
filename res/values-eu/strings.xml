@@ -48,7 +48,7 @@
     <string name="cmas_extreme_immediate_observed_alert" msgid="2328845915287460780">"Larrialdi-alerta: muturrekoa"</string>
     <string name="cmas_extreme_immediate_likely_alert" msgid="1859702950323471778">"Larrialdi-alerta: muturrekoa"</string>
     <string name="cmas_severe_alert" msgid="4135809475315826913">"Larrialdi-alerta: larria"</string>
-    <string name="cmas_amber_alert" msgid="6154867710264778887">"Haurrak bahitzeagatiko alerta (AMBER alerta)"</string>
+    <string name="cmas_amber_alert" msgid="6154867710264778887">"Haurrak bahitzeagatiko alerta (alerta anbara)"</string>
     <string name="cmas_required_monthly_test" msgid="1890205712251132193">"Hileroko nahitaezko proba"</string>
     <string name="cmas_exercise_alert" msgid="2892255514938370321">"Larrialdi-alerta (ariketa)"</string>
     <string name="cmas_operator_defined_alert" msgid="8755372450810011476">"Larrialdi-alerta (operadorea)"</string>
@@ -76,7 +76,7 @@
     <string name="enable_cmas_extreme_threat_alerts_summary" msgid="5832146246627518123">"Bizitza eta jabetza arrisku oso larrian jartzen dituzten egoerak"</string>
     <string name="enable_cmas_severe_threat_alerts_title" msgid="1066172973703410042">"Arrisku larriak"</string>
     <string name="enable_cmas_severe_threat_alerts_summary" msgid="5292443310309039223">"Bizitza eta jabetza arrisku larrian jartzen dituzten egoerak"</string>
-    <string name="enable_cmas_amber_alerts_title" msgid="1475030503498979651">"AMBER alertak"</string>
+    <string name="enable_cmas_amber_alerts_title" msgid="1475030503498979651">"Alerta anbarak"</string>
     <string name="enable_cmas_amber_alerts_summary" msgid="4495233280416889667">"Haurrak bahitzeagatiko larrialdi-buletinak"</string>
     <string name="enable_alert_message_title" msgid="2939830587633599352">"Alerta-mezuak"</string>
     <string name="enable_alert_message_summary" msgid="6525664541696985610">"Ohartarazi berehalako segurtasun-arriskuei buruz"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Ibiltaritzan zaudenean edo SIM aktiborik ez duzunean, baliteke ezarpen hauetan sartzen ez diren alerta batzuk jasotzea"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Ezarpenak aldatu dira"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"Gailuetarako larrialdi-alerten ezarpenak berrezarri dira, SIMa aldatu delako"</string>
+    <string name="button_translate" msgid="905455737012993000">"Itzuli"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"Itzulpena ez dago erabilgarri"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"Itzulpenak aktibatu nahi dituzu?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"Itzulpenak automatikoak dira, eta baliteke akatsak izatea"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Aktibatu"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"Ez, eskerrik asko"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Deskargatu egin behar da"</string>
+    <string name="download_language_message" msgid="417229699977464547">"Mezuak Interneteko konexiorik gabe itzultzeko, hizkuntza-pakete gehigarri bat deskargatu beharko duzu Ezarpenak atalean"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Ezarpenak"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Orain ez"</string>
+    <string name="button_map" msgid="5182272283825950016">"Mapa"</string>
 </resources>

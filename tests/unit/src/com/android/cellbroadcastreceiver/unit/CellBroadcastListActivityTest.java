@@ -26,6 +26,7 @@ import static android.provider.Telephony.CellBroadcasts.CMAS_URGENCY;
 import static android.provider.Telephony.CellBroadcasts.DATA_CODING_SCHEME;
 import static android.provider.Telephony.CellBroadcasts.DELIVERY_TIME;
 import static android.provider.Telephony.CellBroadcasts.ETWS_WARNING_TYPE;
+import static android.provider.Telephony.CellBroadcasts.GEOMETRIES;
 import static android.provider.Telephony.CellBroadcasts.LAC;
 import static android.provider.Telephony.CellBroadcasts.LOCATION_CHECK_TIME;
 import static android.provider.Telephony.CellBroadcasts.MAXIMUM_WAIT_TIME;
@@ -106,6 +107,8 @@ import java.lang.reflect.Field;
 import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.List;
+import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 
 public class CellBroadcastListActivityTest extends
         CellBroadcastActivityTestCase<CellBroadcastListActivity> {
@@ -117,6 +120,7 @@ public class CellBroadcastListActivityTest extends
     @Mock
     private UserManager mMockUserManager;
 
+    private boolean mIsWatch;
 
     @Captor
     private ArgumentCaptor<String> mColumnCaptor;
@@ -140,6 +144,7 @@ public class CellBroadcastListActivityTest extends
         injectSystemService(SubscriptionManager.class, mockSubscriptionManager);
         SubscriptionInfo mockSubInfo = mock(SubscriptionInfo.class);
         doReturn(mockSubInfo).when(mockSubscriptionManager).getActiveSubscriptionInfo(anyInt());
+        mIsWatch = mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_WATCH);
     }
 
     @After
@@ -263,17 +268,64 @@ public class CellBroadcastListActivityTest extends
         return data;
     }
 
-    public void testOnLoadFinishedWithData() throws Throwable {
+    public void testOnLoadFinishedWithDataForWatch() throws Throwable {
+        if (!mIsWatch) {
+            return;
+        }
+
         CellBroadcastListActivity activity = startActivity();
         assertNotNull(activity.mListFragment);
 
-        // create data with one entry so that the "no alert" text view is invisible
         activity.mListFragment.onLoadFinished(null, makeTestCursor());
-        assertEquals(View.INVISIBLE, activity.findViewById(R.id.empty).getVisibility());
+
+        View emptyView = activity.findViewById(R.id.empty);
+        assertNotNull(emptyView);
+        assertEquals("On watch, empty view should be Invisible when data exists",
+                View.INVISIBLE, emptyView.getVisibility());
         assertTrue(activity.findViewById(android.R.id.list).isLongClickable());
     }
 
+    public void testOnLoadFinishedWithData() throws Throwable {
+        if (mIsWatch) {
+            return;
+        }
+        CellBroadcastListActivity activity = startActivity();
+        assertNotNull(activity.mListFragment);
+
+        // create data with one entry so that the "no alert" text view is gone.
+        activity.mListFragment.onLoadFinished(null, makeTestCursor());
+        if (!SettingsThemeHelper.isExpressiveTheme(mContext) || isHideToolbar()) {
+            assertEquals(View.GONE, activity.findViewById(R.id.empty).getVisibility());
+        } else {
+            assertEquals(View.GONE,
+                    activity.findViewById(R.id.empty_zerostate).getVisibility());
+        }
+        assertTrue(activity.findViewById(android.R.id.list).isLongClickable());
+    }
+
+    public void testOnLoadFinishedEmptyDataForWatch() throws Throwable {
+        if (!mIsWatch) {
+            return;
+        }
+
+        CellBroadcastListActivity activity = startActivity();
+        assertNotNull(activity.mListFragment);
+
+        Cursor data = new MatrixCursor(
+                    CellBroadcastListActivity.CursorLoaderListFragment.QUERY_COLUMNS);
+        activity.mListFragment.onLoadFinished(null, data);
+
+        View emptyView = activity.findViewById(R.id.empty);
+        assertNotNull("Watch layout must have R.id.empty", emptyView);
+        assertEquals("Empty text should be visible on watch",
+                View.VISIBLE, emptyView.getVisibility());
+        assertFalse(activity.findViewById(android.R.id.list).isLongClickable());
+    }
+
     public void testOnLoadFinishedEmptyData() throws Throwable {
+        if (mIsWatch) {
+            return;
+        }
         CellBroadcastListActivity activity = startActivity();
         assertNotNull(activity.mListFragment);
 
@@ -281,11 +333,45 @@ public class CellBroadcastListActivityTest extends
         Cursor data =
                 new MatrixCursor(CellBroadcastListActivity.CursorLoaderListFragment.QUERY_COLUMNS);
         activity.mListFragment.onLoadFinished(null, data);
-        assertEquals(View.VISIBLE, activity.findViewById(R.id.empty).getVisibility());
+        if (!SettingsThemeHelper.isExpressiveTheme(mContext) || isHideToolbar()) {
+            assertEquals(View.VISIBLE, activity.findViewById(R.id.empty).getVisibility());
+            assertEquals(View.GONE,
+                    activity.findViewById(R.id.empty_zerostate).getVisibility());
+        } else {
+            assertEquals(View.GONE, activity.findViewById(R.id.empty).getVisibility());
+            assertEquals(View.VISIBLE,
+                    activity.findViewById(R.id.empty_zerostate).getVisibility());
+        }
         assertFalse(activity.findViewById(android.R.id.list).isLongClickable());
     }
 
+    public void testOnLoadFinishedEmptyToExistDataForWatch() throws Throwable {
+        if (!mIsWatch) {
+            return;
+        }
+
+        CellBroadcastListActivity activity = startActivity();
+        assertNotNull(activity.mListFragment);
+
+        Cursor emptyData = new MatrixCursor(
+                    CellBroadcastListActivity.CursorLoaderListFragment.QUERY_COLUMNS);
+        activity.mListFragment.onLoadFinished(null, emptyData);
+
+        View emptyView = activity.findViewById(android.R.id.empty);
+        assertNotNull(emptyView);
+        assertEquals(View.VISIBLE, emptyView.getVisibility());
+
+        assertFalse(activity.findViewById(android.R.id.list).isLongClickable());
+        activity.mListFragment.onLoadFinished(null, makeTestCursor());
+        assertEquals(View.GONE, emptyView.getVisibility());
+        assertTrue(activity.findViewById(android.R.id.list).isLongClickable());
+    }
+
     public void testOnLoadFinishedEmptyToExistData() throws Throwable {
+        if (mIsWatch) {
+            return;
+        }
+
         CellBroadcastListActivity activity = startActivity();
         assertNotNull(activity.mListFragment);
 
@@ -294,11 +380,23 @@ public class CellBroadcastListActivityTest extends
         Cursor data =
                 new MatrixCursor(CellBroadcastListActivity.CursorLoaderListFragment.QUERY_COLUMNS);
         activity.mListFragment.onLoadFinished(null, data);
-        assertEquals(View.VISIBLE, activity.findViewById(R.id.empty).getVisibility());
+        if (!SettingsThemeHelper.isExpressiveTheme(mContext) || isHideToolbar()) {
+            assertEquals(View.VISIBLE, activity.findViewById(R.id.empty).getVisibility());
+            assertEquals(View.GONE,
+                    activity.findViewById(R.id.empty_zerostate).getVisibility());
+        } else {
+            assertEquals(View.GONE, activity.findViewById(R.id.empty).getVisibility());
+            assertEquals(View.VISIBLE, activity.findViewById(R.id.empty_zerostate).getVisibility());
+        }
         assertFalse(activity.findViewById(android.R.id.list).isLongClickable());
 
         activity.mListFragment.onLoadFinished(null, makeTestCursor());
-        assertEquals(View.INVISIBLE, activity.findViewById(R.id.empty).getVisibility());
+        if (!SettingsThemeHelper.isExpressiveTheme(mContext) || isHideToolbar()) {
+            assertEquals(View.GONE, activity.findViewById(R.id.empty).getVisibility());
+        } else {
+            assertEquals(View.GONE,
+                    activity.findViewById(R.id.empty_zerostate).getVisibility());
+        }
         assertTrue(activity.findViewById(android.R.id.list).isLongClickable());
     }
 
@@ -331,8 +429,12 @@ public class CellBroadcastListActivityTest extends
         assertNotNull("onContextItemSelected - MENU_DELETE_ALL should create alert dialog",
                 activity.mListFragment.getFragmentManager().findFragmentByTag(
                         CellBroadcastListActivity.CursorLoaderListFragment.KEY_DELETE_DIALOG));
-
-        verify(mockCursor, atLeastOnce()).getColumnIndex(eq(Telephony.CellBroadcasts._ID));
+        if (mIsWatch) {
+            verify(mockCursor, atLeastOnce()).getColumnIndexOrThrow(
+                    eq(Telephony.CellBroadcasts._ID));
+        } else {
+            verify(mockCursor, atLeastOnce()).getColumnIndex(eq(Telephony.CellBroadcasts._ID));
+        }
     }
 
     @SdkSuppress(minSdkVersion = Build.VERSION_CODES.TIRAMISU)
@@ -382,11 +484,18 @@ public class CellBroadcastListActivityTest extends
         assertNotNull("onContextItemSelected - MENU_DELETE_ALL should create alert dialog",
                 activity.mListFragment.getFragmentManager().findFragmentByTag(
                         CellBroadcastListActivity.CursorLoaderListFragment.KEY_DELETE_DIALOG));
-
-        verify(mockCursor, atLeastOnce()).getColumnIndex(eq(Telephony.CellBroadcasts._ID));
+        if (mIsWatch) {
+            verify(mockCursor,
+                    atLeastOnce()).getColumnIndexOrThrow(eq(Telephony.CellBroadcasts._ID));
+        } else {
+            verify(mockCursor, atLeastOnce()).getColumnIndex(eq(Telephony.CellBroadcasts._ID));
+        }
     }
 
     public void testOnActionTitleOnMultiSelect() throws Throwable {
+        if (mIsWatch) {
+            return;
+        }
         CellBroadcastListActivity activity = startActivity();
         assertNotNull(activity.mListFragment);
 
@@ -516,6 +625,10 @@ public class CellBroadcastListActivityTest extends
         });
         activity.mListFragment.mAdapter.swapCursor(data);
 
+        if (mIsWatch) {
+            activity.mListFragment.mAdapter.getCursor().moveToFirst();
+        }
+
         // create mock delete menu item
         MenuItem mockMenuItem = mock(MenuItem.class);
         doReturn(R.id.action_delete).when(mockMenuItem).getItemId();
@@ -536,8 +649,15 @@ public class CellBroadcastListActivityTest extends
                 CellBroadcastListActivity.CursorLoaderListFragment.KEY_DELETE_DIALOG);
         long[] rowId = frag.getArguments().getLongArray(
                 CellBroadcastListActivity.CursorLoaderListFragment.DeleteDialogFragment.ROW_ID);
-        long[] expectedResult = {rowId1, rowId3};
-        assertTrue(Arrays.equals(expectedResult, expectedResult));
+        if (mIsWatch) {
+            // On Watch, multi-select is disabled. Deletion applies only
+            // to the single targeted item (rowId1).
+            long[] expectedResult = {rowId1};
+            assertTrue(Arrays.equals(expectedResult, rowId));
+        } else {
+            long[] expectedResult = {rowId1, rowId3};
+            assertTrue(Arrays.equals(expectedResult, rowId));
+        }
     }
 
     public void testOnActionItemClickedViewDetail() throws Throwable {
@@ -550,6 +670,9 @@ public class CellBroadcastListActivityTest extends
         android.app.AlertDialog.Builder mockAlertDialogBuilderOld = null;
         if (isHideToolbal) {
             mockAlertDialogBuilderOld = getMockAlertDialogBuilderOld(activity);
+            if (mIsWatch) {
+                activity.mListFragment.mInjectAlertDialogBuilderOld = mockAlertDialogBuilderOld;
+            }
         } else {
             mockAlertDialogBuilder = getMockAlertDialogBuilder(activity);
         }
@@ -583,14 +706,17 @@ public class CellBroadcastListActivityTest extends
 
         verify(mode, times(2)).finish();
         if (isHideToolbal) {
+            if (mIsWatch) {
+                verify(mockAlertDialogBuilderOld, never()).show();
+                return;
+            }
             verify(mockAlertDialogBuilderOld).show();
-
         } else {
             verify(mockAlertDialogBuilder).show();
         }
 
         // getColumnIndex is called 13 times within CellBroadcastCursorAdapter.createFromCursor
-        verify(mockCursor, times(13)).getColumnIndex(mColumnCaptor.capture());
+        verify(mockCursor, times(14)).getColumnIndex(mColumnCaptor.capture());
         List<String> columns = mColumnCaptor.getAllValues();
         assertTrue(contains(columns, PLMN));
         assertTrue(contains(columns, LAC));
@@ -605,6 +731,7 @@ public class CellBroadcastListActivityTest extends
         assertTrue(contains(columns, DELIVERY_TIME));
         assertTrue(contains(columns, DATA_CODING_SCHEME));
         assertTrue(contains(columns, MAXIMUM_WAIT_TIME));
+        assertTrue(contains(columns, GEOMETRIES));
     }
 
     public void testOnContextItemSelectedViewDetails() throws Throwable {
@@ -638,7 +765,7 @@ public class CellBroadcastListActivityTest extends
         }
 
         // getColumnIndex is called 13 times within CellBroadcastCursorAdapter.createFromCursor
-        verify(mockCursor, times(13)).getColumnIndex(mColumnCaptor.capture());
+        verify(mockCursor, times(14)).getColumnIndex(mColumnCaptor.capture());
         List<String> columns = mColumnCaptor.getAllValues();
         assertTrue(contains(columns, PLMN));
         assertTrue(contains(columns, LAC));
@@ -653,6 +780,7 @@ public class CellBroadcastListActivityTest extends
         assertTrue(contains(columns, DELIVERY_TIME));
         assertTrue(contains(columns, DATA_CODING_SCHEME));
         assertTrue(contains(columns, MAXIMUM_WAIT_TIME));
+        assertTrue(contains(columns, GEOMETRIES));
     }
 
     private boolean contains(List<String> columns, String column) {
@@ -798,11 +926,17 @@ public class CellBroadcastListActivityTest extends
 
         Cursor mockCursor = getMockCursor(activity, 0, 0L);
         doReturn("test").when(mockCursor).getString(anyInt());
+        if (mIsWatch) {
+            mockCursor.moveToFirst();
+        }
         boolean hideToolbar = isHideToolbar();
         AlertDialog.Builder mockAlertDialogBuilder = null;
         android.app.AlertDialog.Builder mockAlertDialogBuilderOld = null;
         if (hideToolbar) {
             mockAlertDialogBuilderOld = getMockAlertDialogBuilderOld(activity);
+            if (mIsWatch) {
+                activity.mListFragment.mInjectAlertDialogBuilderOld = mockAlertDialogBuilderOld;
+            }
         } else {
             mockAlertDialogBuilder = getMockAlertDialogBuilder(activity);
         }
@@ -825,6 +959,14 @@ public class CellBroadcastListActivityTest extends
         activity.mListFragment.getListView().setItemChecked(0, true);
         activity.mListFragment.getMultiChoiceModeListener()
                 .onActionItemClicked(mock(ActionMode.class), mockMenuItem);
+
+        if (mIsWatch) {
+            // Verify: On watch, since there is no dialog by design, show() should never be called.
+            verify(mockAlertDialogBuilderOld, never()).show();
+            // Directly return, as the following verification of message content is meaningless
+            // without a dialog.
+            return;
+        }
 
         // verify the locationCheckTime in dialog's message
         ArgumentCaptor<CharSequence> detailCaptor = ArgumentCaptor.forClass(CharSequence.class);
@@ -941,6 +1083,37 @@ public class CellBroadcastListActivityTest extends
         } else {
             assertFalse(theme.resolveAttribute(attrId, typedValue, true));
         }
+    }
+
+    public void testUpdateNoAlertTextVisibility_forWatch() throws Throwable {
+        setWatchFeatureEnabled(true);
+        CellBroadcastListActivity activity = startActivity();
+        assertNotNull(activity.mListFragment);
+
+        Cursor emptyCursor =
+                new MatrixCursor(CellBroadcastListActivity.CursorLoaderListFragment.QUERY_COLUMNS);
+        Cursor nonEmptyCursor = makeTestCursor();
+
+        activity.mListFragment.onLoadFinished(null, emptyCursor);
+        waitForHandlerAction(Handler.getMain(), 100);
+
+        assertEquals("For Watch with no alerts, 'empty' view should be VISIBLE",
+                View.VISIBLE, activity.findViewById(R.id.empty).getVisibility());
+        View zeroStateView = activity.findViewById(R.id.empty_zerostate);
+        if (zeroStateView != null) {
+            assertEquals("For Watch, 'zerostate' view should always be GONE",
+                    View.GONE, zeroStateView.getVisibility());
+        }
+        assertFalse("For Watch with no alerts, list should not be long clickable",
+                activity.findViewById(android.R.id.list).isLongClickable());
+
+        activity.mListFragment.onLoadFinished(null, nonEmptyCursor);
+        waitForHandlerAction(Handler.getMain(), 100);
+
+        assertEquals("For Watch with alerts, 'empty' view should be Invisible",
+                View.INVISIBLE, activity.findViewById(R.id.empty).getVisibility());
+        assertTrue("For Watch with alerts, list should be long clickable",
+                activity.findViewById(android.R.id.list).isLongClickable());
     }
 
     private android.app.AlertDialog.Builder getMockAlertDialogBuilderOld(

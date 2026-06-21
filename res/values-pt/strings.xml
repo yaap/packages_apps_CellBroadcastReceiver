@@ -89,7 +89,7 @@
     <string name="enable_emergency_alerts_message_title" msgid="661894007489847468">"Alertas de emergência"</string>
     <string name="enable_emergency_alerts_message_summary" msgid="7574617515441602546">"Aviso sobre eventos perigosos"</string>
     <string name="enable_cmas_test_alerts_title" msgid="7194966927004755266">"Alertas de teste"</string>
-    <string name="enable_cmas_test_alerts_summary" msgid="2083089933271720217">"Receber testes mensais e da operadora pelo sistema de aviso de segurança"</string>
+    <string name="enable_cmas_test_alerts_summary" msgid="2083089933271720217">"Receba testes mensais e da operadora pelo sistema de aviso de segurança"</string>
     <!-- no translation found for enable_exercise_test_alerts_title (6030780598569873865) -->
     <skip />
     <string name="enable_exercise_test_alerts_summary" msgid="4276766794979567304">"Receber alerta de emergência: mensagem de treinamento/prática"</string>
@@ -141,7 +141,7 @@
     <string name="cmas_opt_out_dialog_text" msgid="4820577535626084938">"Você está recebendo alertas de emergência sem fio. Quer continuar a recebê-los?"</string>
     <string name="cmas_opt_out_button_yes" msgid="7248930667195432936">"Sim"</string>
     <string name="cmas_opt_out_button_no" msgid="3110484064328538553">"Não"</string>
-    <string name="cb_list_activity_title" msgid="1433502151877791724">"Histórico de alertas de emergência"</string>
+    <string name="cb_list_activity_title" msgid="1433502151877791724">"Hist. de alertas de emergência"</string>
     <string name="action_delete" msgid="7435661404543945861">"Excluir"</string>
     <string name="action_detail_info" msgid="8486524382178381810">"Mostrar detalhe"</string>
   <string-array name="alert_reminder_interval_entries">
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Se estiver em roaming ou não tiver um chip ativo, você poderá receber alguns alertas não incluídos nestas configurações"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Suas configurações mudaram"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"As configurações de alertas de emergência sem fio foram redefinidas porque seu chip mudou"</string>
+    <string name="button_translate" msgid="905455737012993000">"Tradutor"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"Tradução indisponível"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"Ativar as traduções?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"As traduções são automatizadas e podem conter erros"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Ativar"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"Agora não"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Download necessário"</string>
+    <string name="download_language_message" msgid="417229699977464547">"Para traduzir mensagens sem uma conexão de Internet, você precisa baixar um pacote de idioma extra nas Configurações"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Configurações"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Agora não"</string>
+    <string name="button_map" msgid="5182272283825950016">"Mapa"</string>
 </resources>

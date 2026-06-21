@@ -26,7 +26,7 @@
     <skip />
     <string name="cell_broadcast_settings_not_available" msgid="3908142962162375221">"এই ব্যবহারকারীর জন্য ওয়্যারলেস সতর্কতার সেটিংস উপলভ্য নয়"</string>
     <string name="button_dismiss" msgid="1234221657930516287">"ঠিক আছে"</string>
-    <string name="no_cell_broadcasts" msgid="7554779730107421769">"পূর্বের কোনও সতর্কতা নেই"</string>
+    <string name="no_cell_broadcasts" msgid="7554779730107421769">"আগের কোনও সতর্কতা নেই"</string>
     <string name="menu_preferences" msgid="3596514894131599202">"সেটিংস"</string>
     <string name="menu_delete_all" msgid="3940997343921149800">"সম্প্রচারগুলি মুছে দিন"</string>
     <string name="message_options" msgid="3178489901903589574">"মেসেজ বিকল্পগুলি"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"আপনি রোমিংয়ে থাকাকালীন বা আপনার কাছে কোনও অ্যাক্টিভ সিম কার্ড না থাকলে, এইসব সেটিংসে অন্তর্ভুক্ত করা নেই এমন কিছু সতর্কতা পেতে পারেন"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"আপনার সেটিংস পরিবর্তন করা হয়েছে"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"আপনার সিম কার্ড পরিবর্তন করার জন্য ওয়্যারলেস জরুরি সতর্কতা সেটিংস রিসেট করা হয়েছে"</string>
+    <string name="button_translate" msgid="905455737012993000">"অনুবাদ করুন"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"অনুবাদ উপলভ্য নেই"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"অনুবাদ চালু করতে চান?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"অনুবাদ অটোমেটিক হয় এবং তাতে ভুল থাকতে পারে"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"চালু করুন"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"না থাক"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"ডাউনলোড করতে হবে"</string>
+    <string name="download_language_message" msgid="417229699977464547">"ইন্টারনেট কানেকশন ছাড়াই মেসেজ অনুবাদ করতে, আপনাকে সেটিংস থেকে অতিরিক্ত ভাষা প্যাকেজ ডাউনলোড করতে হবে"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"সেটিংস"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"এখন নয়"</string>
+    <string name="button_map" msgid="5182272283825950016">"ম্যাপ"</string>
 </resources>

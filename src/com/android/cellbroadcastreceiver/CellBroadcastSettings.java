@@ -205,7 +205,7 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
         // for backward compatibility on R devices or wearable devices due to small screen device.
         boolean hideToolbar = !SdkLevel.isAtLeastS() || isWatch;
         if (hideToolbar) {
-            setCustomizeContentView(R.layout.cell_broadcast_list_collapsing_no_toobar);
+            setCustomizeContentView(R.layout.cell_broadcast_list_collapsing_no_toolbar);
         }
 
         super.onCreate(savedInstanceState);
@@ -797,6 +797,10 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
             }
 
             if (mReceiveCmasInSecondLanguageCheckBox != null) {
+                mReceiveCmasInSecondLanguageCheckBox.setTitle(
+                        res.getString(R.string.receive_cmas_in_second_language_title));
+                mReceiveCmasInSecondLanguageCheckBox.setSummary(
+                        res.getString(R.string.receive_cmas_in_second_language_summary));
                 mReceiveCmasInSecondLanguageCheckBox.setVisible(!res.getString(
                         R.string.emergency_alert_second_language_code).isEmpty());
                 if (isWatch && !mReceiveCmasInSecondLanguageCheckBox.isVisible()) {
@@ -1428,6 +1432,10 @@ public class CellBroadcastSettings extends CollapsingToolbarBaseActivity {
             }
 
             if (mReceiveCmasInSecondLanguageCheckBox != null) {
+                mReceiveCmasInSecondLanguageCheckBox.setTitle(
+                        res.getString(R.string.receive_cmas_in_second_language_title));
+                mReceiveCmasInSecondLanguageCheckBox.setSummary(
+                        res.getString(R.string.receive_cmas_in_second_language_summary));
                 mReceiveCmasInSecondLanguageCheckBox.setVisible(!res.getString(
                         R.string.emergency_alert_second_language_code).isEmpty());
                 if (isWatch && !mReceiveCmasInSecondLanguageCheckBox.isVisible()) {

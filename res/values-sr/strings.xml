@@ -26,7 +26,7 @@
     <skip />
     <string name="cell_broadcast_settings_not_available" msgid="3908142962162375221">"Подешавања бежичних обавештења о хитним случајевима нису доступна за овог корисника"</string>
     <string name="button_dismiss" msgid="1234221657930516287">"Важи"</string>
-    <string name="no_cell_broadcasts" msgid="7554779730107421769">"Нема претходних обавештења"</string>
+    <string name="no_cell_broadcasts" msgid="7554779730107421769">"Нема претходних упозорења"</string>
     <string name="menu_preferences" msgid="3596514894131599202">"Подешавања"</string>
     <string name="menu_delete_all" msgid="3940997343921149800">"Избриши емитовања"</string>
     <string name="message_options" msgid="3178489901903589574">"Опције порука"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Док сте у ромингу или када немате активан SIM, можете да добијате нека упозорења која нису обухваћена овим подешавањима"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Подешавања су промењена"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"Подешавања мобилних упозорења о хитним случајевима су ресетована јер сте променили SIM"</string>
+    <string name="button_translate" msgid="905455737012993000">"Преведи"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"Превод није доступан"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"Желите да укључите преводе?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"Преводи су аутоматизовани и могу да садрже грешке"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Укључи"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"Не, хвала"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Потребно је преузимање"</string>
+    <string name="download_language_message" msgid="417229699977464547">"Да бисте преводили поруке без интернет везе, треба да преузмете додатни језички пакет у Подешавањима"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Подешавања"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Не сада"</string>
+    <string name="button_map" msgid="5182272283825950016">"Мапа"</string>
 </resources>

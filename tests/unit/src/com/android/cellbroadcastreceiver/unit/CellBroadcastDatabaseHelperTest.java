@@ -70,6 +70,7 @@ public class CellBroadcastDatabaseHelperTest {
     SharedPreferences mSharedPreferences;
     @Mock
     android.content.SharedPreferences.Editor mEditor;
+    private static final String CELLBROADCAST_GEOMETRIES = "cellbroadcast_geometries";
 
     @Before
     public void setUp() {
@@ -95,6 +96,7 @@ public class CellBroadcastDatabaseHelperTest {
         String[] columns = cursor.getColumnNames();
         Log.d(TAG, "cellbroadcastreceiver columns before upgrade: " + Arrays.toString(columns));
         assertFalse(Arrays.asList(columns).contains(CellBroadcasts.SLOT_INDEX));
+        assertFalse(Arrays.asList(columns).contains(CELLBROADCAST_GEOMETRIES));
         assertEquals(0, cursor.getCount());
     }
 
@@ -156,6 +158,7 @@ public class CellBroadcastDatabaseHelperTest {
                 0,              // CMAS_SEVERITY
                 0,              // CMAS_URGENCY
                 0,              // CMAS_CERTAINTY
+                "",             // GEOMETRIES
         });
 
         doReturn(mc).when(mContentProviderClient).query(any(), any(), any(), any(), any());
@@ -172,6 +175,49 @@ public class CellBroadcastDatabaseHelperTest {
         cursor = db.query(CellBroadcastDatabaseHelper.TABLE_NAME,
                 CellBroadcastDatabaseHelper.QUERY_COLUMNS, null, null, null, null, null);
         assertEquals(1, cursor.getCount());
+    }
+
+    @Test
+    public void databaseHelperOnUpgrade_V14() {
+        Log.d(TAG, "databaseHelperOnUpgrade_V14");
+        SQLiteDatabase db = mInMemoryDbHelper.getWritableDatabase();
+        // version 13 -> 14 trigger in onUpgrade
+        mHelper.onUpgrade(db, 13, 14);
+        // the upgraded db must have the geometries_data field
+        Cursor upgradedCursor = db.query(CellBroadcastDatabaseHelper.TABLE_NAME,
+                null, null, null, null, null, null);
+        String[] upgradedColumns = upgradedCursor.getColumnNames();
+        Log.d(TAG, "cellbroadcastreceiver columns: " + Arrays.toString(upgradedColumns));
+        assertTrue(Arrays.asList(upgradedColumns).contains(CellBroadcasts.GEOMETRIES));
+    }
+
+    @Test
+    public void databaseHelperOnDowngrade() {
+        Log.d(TAG, "databaseHelperOnDowngrade");
+        SQLiteDatabase db = mInMemoryDbHelper.getWritableDatabase();
+        Cursor cursor = db.query(CellBroadcastDatabaseHelper.TABLE_NAME,
+                null, null, null, null, null, null);
+        String[] columns = cursor.getColumnNames();
+        assertFalse(Arrays.asList(columns).contains(CellBroadcasts.SLOT_INDEX));
+        assertFalse(Arrays.asList(columns).contains(CellBroadcasts.GEOMETRIES));
+        if (cursor != null) cursor.close();
+
+        // Simulate version 100 -> 14
+        mHelper.onDowngrade(db, 100, 14);
+
+        Cursor downgradedCursor = db.rawQuery(
+                "SELECT * FROM " + CellBroadcastDatabaseHelper.TABLE_NAME + " LIMIT 0", null);
+
+        String[] downgradedColumns = downgradedCursor.getColumnNames();
+        Log.d(TAG, "Columns from rawQuery: " + Arrays.toString(downgradedColumns));
+
+        assertTrue(Arrays.asList(downgradedColumns).contains(CellBroadcasts.SLOT_INDEX));
+        downgradedCursor.close();
+
+        assertTrue(Arrays.asList(downgradedColumns).contains(CellBroadcasts.SLOT_INDEX));
+        assertTrue(Arrays.asList(downgradedColumns).contains(
+                CellBroadcastDatabaseHelper.SMS_SYNC_PENDING));
+        assertTrue(Arrays.asList(downgradedColumns).contains(CellBroadcasts.GEOMETRIES));
     }
 
     private static class InMemoryCellBroadcastProviderDbHelperV11 extends SQLiteOpenHelper {

@@ -149,7 +149,7 @@
     <item msgid="9097229303902157183">"Setiap 2 minit"</item>
     <item msgid="5718214950343391480">"Setiap 5 minit"</item>
     <item msgid="3863339891188103437">"Setiap 15 minit"</item>
-    <item msgid="7388573183644474611">"Jangan"</item>
+    <item msgid="7388573183644474611">"Tidak pernah"</item>
   </string-array>
     <string name="emergency_alert_settings_title_watches" msgid="4477073412799894883">"Makluman kecemasan wayarles"</string>
     <string name="enable_cmas_presidential_alerts_title" msgid="7293800023375154256">"Makluman Presiden"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"Apabila anda dalam perayauan atau tidak mempunyai SIM yang aktif, anda mungkin mendapat beberapa makluman yang tidak disertakan dalam tetapan ini"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"Tetapan anda ditukar"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"Tetapan makluman kecemasan wayarles telah ditetapkan semula kerana SIM anda ditukar"</string>
+    <string name="button_translate" msgid="905455737012993000">"Terjemah"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"Terjemahan tidak tersedia"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"Hidupkan terjemahan?"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"Terjemahan adalah automatik dan mungkin mengandungi kesilapan"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"Hidupkan"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"Tidak perlu"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"Muat turun diperlukan"</string>
+    <string name="download_language_message" msgid="417229699977464547">"Untuk menterjemahkan mesej tanpa sambungan Internet, anda perlu memuat turun pakej bahasa tambahan dalam Tetapan"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"Tetapan"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"Bukan sekarang"</string>
+    <string name="button_map" msgid="5182272283825950016">"Peta"</string>
 </resources>

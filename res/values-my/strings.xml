@@ -82,7 +82,7 @@
     <string name="enable_alert_message_summary" msgid="6525664541696985610">"ဖြစ်အံ့ဆဲဆဲ လုံခြုံရေးအန္တရာယ်များအတွက် သတိပေးရန်"</string>
     <string name="enable_public_safety_messages_title" msgid="5576770949182656524">"လူထု ဘေးကင်းလုံခြုံရေး မက်ဆေ့ဂျ်များ"</string>
     <string name="enable_public_safety_messages_summary" msgid="7868069748857851521">"အသက်အိုးအိမ်တို့ကို ကယ်တင်နိုင်သော အကြံပြုထားသည့် လုပ်ဆောင်ချက်များ"</string>
-    <string name="enable_full_screen_public_safety_messages_title" msgid="1790574642368284876">"ဖန်သားပြင်အပြည့် မက်ဆေ့ဂျ်များ ပြခြင်း"</string>
+    <string name="enable_full_screen_public_safety_messages_title" msgid="1790574642368284876">"စခရင်အပြည့် မက်ဆေ့ဂျ်များ ပြခြင်း"</string>
     <string name="enable_full_screen_public_safety_messages_summary" msgid="194171850169012897">"ပိတ်ထားစဉ် လူထုလုံခြုံရေးဆိုင်ရာ မက်ဆေ့ဂျ်များကို အကြောင်းကြားချက်အဖြစ် ပို့နိုင်သေးသည်"</string>
     <string name="enable_state_local_test_alerts_title" msgid="1012930918171302720">"ပြည်နယ်နှင့် ဒေသတွင်း စမ်းသပ်မှုများ"</string>
     <string name="enable_state_local_test_alerts_summary" msgid="780298327377950187">"ပြည်နယ်နှင့် ဒေသတွင်း အုပ်ချုပ်သူများထံမှ စမ်းသပ်မက်ဆေ့ဂျ်များ ရယူရန်"</string>
@@ -175,4 +175,15 @@
     <string name="top_intro_roaming_text" msgid="5250650823028195358">"ပြင်ပကွန်ရက်သုံးနေလျှင် (သို့) သုံးနေသောဆင်းမ်ကတ်မရှိလျှင် ဤဆက်တင်များတွင် မပါဝင်သော သတိပေးချက်အချို့ ရရှိနိုင်သည်"</string>
     <string name="notification_cb_settings_changed_title" msgid="8404224790323899805">"ဆက်တင်များကို ပြောင်းလိုက်ပါပြီ"</string>
     <string name="notification_cb_settings_changed_text" msgid="8722470940705858715">"သင့်ဆင်းမ်ကတ် ပြောင်းသွားသဖြင့် ကြိုးမဲ့ အရေးပေါ်သတိပေးချက် ဆက်တင်များကို ပြင်ဆင်သတ်မှတ်ထားသည်"</string>
+    <string name="button_translate" msgid="905455737012993000">"ဘာသာပြန်ရန်"</string>
+    <string name="translation_failed_toast" msgid="2716408960127862588">"ဘာသာပြန်ဆိုချက်ကို မရနိုင်ပါ"</string>
+    <string name="translation_consent_title" msgid="2844204601896691006">"ဘာသာပြန်ခြင်း ဖွင့်မလား"</string>
+    <string name="translation_consent_message" msgid="4588089129784705987">"ဘာသာပြန်ဆိုချက်များကို အလိုအလျောက်ပြုလုပ်ထားပြီး အမှားများ ပါဝင်နိုင်သည်"</string>
+    <string name="translation_consent_positive_button" msgid="1610706966371761921">"ဖွင့်ရန်"</string>
+    <string name="translation_consent_negative_button" msgid="9145526759331800269">"မလိုပါ"</string>
+    <string name="download_language_title" msgid="4970919897003512279">"ဒေါင်းလုဒ်လုပ်ရန် လိုအပ်သည်"</string>
+    <string name="download_language_message" msgid="417229699977464547">"အင်တာနက်ချိတ်ဆက်မှုမရှိဘဲ မက်ဆေ့ဂျ်များ ဘာသာပြန်ရန် ဆက်တင်များတွင် ထပ်ဆောင်းဘာသာစကား ပက်ကေ့ဂျ်ကို ဒေါင်းလုဒ်လုပ်ရမည်"</string>
+    <string name="download_language_positive_button" msgid="3455605256671856458">"ဆက်တင်များ"</string>
+    <string name="download_language_negative_button" msgid="1441855301756712618">"ယခုမလုပ်ပါ"</string>
+    <string name="button_map" msgid="5182272283825950016">"မြေပုံ"</string>
 </resources>

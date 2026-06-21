@@ -42,6 +42,7 @@ android_library {
         "modules-utils-build_system",
         "cellbroadcast-java-proto-lite",
         "cellbroadcastreceiver_flags_lib",
+        "SettingsLibZeroStatePreference",
     ],
     resource_dirs: ["res"],
     manifest: "AndroidManifest_Lib.xml",
@@ -49,6 +50,9 @@ android_library {
         "com.android.cellbroadcast",
         "//apex_available:platform",
     ],
+    lint: {
+        baseline_filename: "lint-baseline.xml",
+    },
 }
 
 android_app {
@@ -60,6 +64,7 @@ android_app {
     manifest: "AndroidManifest.xml",
     apex_available: ["com.android.cellbroadcast"],
     privapp_allowlist: ":privapp_allowlist_com.android.cellbroadcastreceiver.module.xml",
+    preinstall_allowlist: ":preinstalled-packages-com.android.cellbroadcastreceiver.xml",
     resource_dirs: [],
     updatable: true,
 }
@@ -80,6 +85,7 @@ android_app {
     system_ext_specific: true,
     privileged: true,
     privapp_allowlist: ":platform_privapp_allowlist_com.android.cellbroadcastreceiver.xml",
+    preinstall_allowlist: ":platform-preinstalled-packages-com.android.cellbroadcastreceiver.xml",
     resource_dirs: [],
 }
 
@@ -103,5 +109,19 @@ java_library {
     apex_available: [
         "com.android.cellbroadcast",
         "//apex_available:platform",
+    ],
+}
+
+filegroup {
+    name: "preinstalled-packages-com.android.cellbroadcastreceiver.xml",
+    srcs: [
+        "sysconfig/preinstalled-packages-com.android.cellbroadcastreceiver.xml",
+    ],
+}
+
+filegroup {
+    name: "platform-preinstalled-packages-com.android.cellbroadcastreceiver.xml",
+    srcs: [
+        "sysconfig/platform-preinstalled-packages-com.android.cellbroadcastreceiver.xml",
     ],
 }
